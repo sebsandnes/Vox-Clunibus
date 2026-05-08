@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voxclunibus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&family=Mulish:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <a href="/" class="logo">Voxclunibus</a>
+    <nav>
+      <a href="#shop" data-i18n="nav_shop">Shop</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <button onclick="setLang('en')" class="lang-btn" id="lang-en">EN</button>
+        <span>|</span>
+        <button onclick="setLang('no')" class="lang-btn" id="lang-no">NO</button>
+      </div>
+      <button class="cart-btn" onclick="openCart()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-tag" data-i18n="hero_tag">T-shirts printed on demand</p>
+      <h1 data-i18n="hero_title">Wear something<br>worth talking about.</h1>
+      <p class="hero-sub" data-i18n="hero_sub">Funny, bold, a little weird. Every shirt printed and shipped directly to you.</p>
+      <a href="#shop" class="btn" data-i18n="hero_btn">Browse collection</a>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section id="shop" class="shop-section">
+    <div class="section-header">
+      <h2 data-i18n="shop_title">Collection</h2>
+      <p data-i18n="shop_sub">New designs coming soon</p>
+    </div>
+    <div class="products-grid" id="productsGrid">
+      <!-- Empty placeholders -->
+      <div class="product-placeholder">
+        <div class="placeholder-img">
+          <span>?</span>
+        </div>
+        <div class="placeholder-text">
+          <div class="placeholder-line long"></div>
+          <div class="placeholder-line short"></div>
+        </div>
+      </div>
+      <div class="product-placeholder">
+        <div class="placeholder-img"><span>?</span></div>
+        <div class="placeholder-text">
+          <div class="placeholder-line long"></div>
+          <div class="placeholder-line short"></div>
+        </div>
+      </div>
+      <div class="product-placeholder">
+        <div class="placeholder-img"><span>?</span></div>
+        <div class="placeholder-text">
+          <div class="placeholder-line long"></div>
+          <div class="placeholder-line short"></div>
+        </div>
+      </div>
+      <div class="product-placeholder">
+        <div class="placeholder-img"><span>?</span></div>
+        <div class="placeholder-text">
+          <div class="placeholder-line long"></div>
+          <div class="placeholder-line short"></div>
+        </div>
+      </div>
+    </div>
+    <p class="coming-soon" data-i18n="coming_soon">Products launching soon. Sign up below to be notified.</p>
+    <div class="notify-form">
+      <input type="email" id="notifyEmail" data-i18n-placeholder="notify_placeholder" placeholder="Your email address" />
+      <button onclick="handleNotify()" data-i18n="notify_btn">Notify me</button>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 data-i18n="about_title">How it works</h2>
+        <p data-i18n="about_p1">Every shirt is printed on demand — no stock, no waste. When you order, it goes straight to print and ships to your door within a few days.</p>
+        <p data-i18n="about_p2">We use Printful to handle printing and shipping worldwide. 100% cotton tees, high-quality print.</p>
+      </div>
+      <div class="about-steps">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div>
+            <strong data-i18n="step1_title">You order</strong>
+            <p data-i18n="step1_desc">Pick your shirt and size, pay securely.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div>
+            <strong data-i18n="step2_title">We print</strong>
+            <p data-i18n="step2_desc">Your order goes to print within 24 hours.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div>
+            <strong data-i18n="step3_title">You receive</strong>
+            <p data-i18n="step3_desc">Delivered to your door in 5–10 business days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART DRAWER -->
+  <div class="overlay" id="overlay" onclick="closeCart()"></div>
+  <aside class="cart" id="cart">
+    <div class="cart-header">
+      <h3 data-i18n="cart_title">Your cart</h3>
+      <button onclick="closeCart()" class="close-btn">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty" data-i18n="cart_empty">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span data-i18n="cart_total">Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="btn full" onclick="startCheckout()" data-i18n="cart_checkout">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="logo">Voxclunibus</span>
+      <p>© 2025 Voxclunibus. Printed on demand.</p>
+      <div class="footer-links">
+        <a href="#" data-i18n="footer_privacy">Privacy</a>
+        <a href="#" data-i18n="footer_returns">Returns</a>
+        <a href="#" data-i18n="footer_contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="cart.js"></script>
+  <script src="products.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

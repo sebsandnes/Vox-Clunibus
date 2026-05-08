@@ -1,0 +1,12 @@
+{
+  "name": "voxclunibus",
+  "version": "1.0.0",
+  "description": "Voxclunibus T-shirt store",
+  "dependencies": {
+    "stripe": "^14.0.0",
+    "node-fetch": "^2.7.0"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}

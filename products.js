@@ -1,16 +1,34 @@
 // =============================================
-// PRODUCTS — Add your products here when ready
-// Each product needs a Printful variant_id
+// PRODUCTS — Add your products here
 // =============================================
 
 const PRODUCTS = [
-  // Example (uncomment and fill in when ready):
-  // {
-  //   id: "prod_001",
-  //   name: "Your shirt name",
-  //   price: 34.99,
-  //   emoji: "😎",           // temporary until you have real images
-  //   image: null,           // set to image path when ready, e.g. "images/shirt1.jpg"
-  //   printful_variant_ids: { S: 4011, M: 4012, L: 4013, XL: 4014, "2XL": 4015 }
-  // },
+  {
+    id: "prod_001",
+    name: "It's Not a Chair, It's a Throne",
+    price: 19.00,
+    emoji: "🪑",
+    image: null,
+    description: "You know what it is.",
+    variants: {
+      Black: {
+        S:   "69fe38b8c81317",
+        M:   "69fe38b8c81376",
+        L:   "69fe38b8c813c3",
+        XL:  "69fe38b8c81406",
+        "2XL": "69fe38b8c81456",
+        "3XL": "69fe38b8c814a8",
+      },
+      White: {
+        S:   "69fe38b8c814e4",
+        M:   "69fe38b8c81533",
+        L:   "69fe38b8c81574",
+        XL:  "69fe38b8c815c5",
+        "2XL": "69fe38b8c81602",
+        "3XL": "69fe38b8c81647",
+      }
+    },
+    defaultColor: "Black",
+    availableColors: ["Black", "White"],
+  },
 ];

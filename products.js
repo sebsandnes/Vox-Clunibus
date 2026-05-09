@@ -4,7 +4,7 @@ const PRODUCTS = [
     name: "It's Not a Chair, It's a Throne",
     price: 20.00,
     emoji: "🪑",
-    image: null,
+    image: "images/throne.png",
     description: "You know what it is.",
     variants: {
       Black: {
@@ -19,7 +19,7 @@ const PRODUCTS = [
     name: "Born to Rot, Forced to Work",
     price: 20.00,
     emoji: "💀",
-    image: null,
+    image: "images/born-to-rot.png",
     description: "The daily struggle.",
     variants: {
       Black: {
@@ -34,7 +34,7 @@ const PRODUCTS = [
     name: "Mentally in a Recliner",
     price: 20.00,
     emoji: "🛋️",
-    image: null,
+    image: "images/recliner.png",
     description: "Physically here. Mentally elsewhere.",
     variants: {
       Black: {
@@ -49,7 +49,7 @@ const PRODUCTS = [
     name: "I Support LGBTQ",
     price: 20.00,
     emoji: "🌈",
-    image: null,
+    image: "images/lgbtq.png",
     description: "Lips, Giant-Ass, Boobs, Toes, Quickie.",
     variants: {
       Black: {
@@ -61,11 +61,11 @@ const PRODUCTS = [
   },
   {
     id: "prod_005",
-    name: "ADHD",
+    name: "I Support ADHD",
     price: 20.00,
     emoji: "🧠",
-    image: null,
-    description: "Wait, what were we talking about?",
+    image: "images/adhd.png",
+    description: "Alcohol, Drugs, Horrible Sleep, Doomscrolling.",
     variants: {
       Black: {
         S: "69ff0fe399fc64", M: "69ff0fe399fcc9", L: "69ff0fe399fd12",
@@ -76,11 +76,11 @@ const PRODUCTS = [
   },
   {
     id: "prod_006",
-    name: "AI",
+    name: "AI Took My Job",
     price: 20.00,
     emoji: "🤖",
-    image: null,
-    description: "The future is now.",
+    image: "images/ai.png",
+    description: "Thanks for nothing.",
     variants: {
       Black: {
         S: "69ff10766f3868", M: "69ff10766f38d5", L: "69ff10766f3922",

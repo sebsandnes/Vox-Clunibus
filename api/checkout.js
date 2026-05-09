@@ -14,11 +14,15 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: 'Cart is empty' });
     }
 
+    // Calculate total to determine shipping
+    const total = cartItems.reduce((sum, item) => sum + (item.price * (item.qty || 1)), 0);
+    const freeShipping = total >= 60;
+
     const lineItems = cartItems.map(item => ({
       price_data: {
         currency: 'usd',
         product_data: {
-          name: `${item.name} - ${item.color || 'Black'} / ${item.size}`,
+          name: `${item.name} — ${item.color || 'Black'} / ${item.size}`,
           metadata: {
             product_id: item.id,
             size: item.size,
@@ -36,21 +40,46 @@ module.exports = async function handler(req, res) {
       mode: 'payment',
       line_items: lineItems,
       shipping_address_collection: {
-        allowed_countries: ['US', 'CA', 'GB', 'NO', 'SE', 'DK', 'FI', 'DE', 'FR', 'AU', 'NZ'],
+        allowed_countries: ['US', 'CA', 'GB', 'NO', 'SE', 'DK', 'FI', 'DE', 'FR', 'NL', 'BE', 'AT', 'CH', 'AU', 'NZ'],
       },
-      shipping_options: [
-        {
-          shipping_rate_data: {
-            type: 'fixed_amount',
-            fixed_amount: { amount: 599, currency: 'usd' },
-            display_name: 'Standard Shipping',
-            delivery_estimate: {
-              minimum: { unit: 'business_day', value: 5 },
-              maximum: { unit: 'business_day', value: 10 },
+      shipping_options: freeShipping
+        ? [
+            {
+              shipping_rate_data: {
+                type: 'fixed_amount',
+                fixed_amount: { amount: 0, currency: 'usd' },
+                display_name: '🎉 Free Shipping',
+                delivery_estimate: {
+                  minimum: { unit: 'business_day', value: 5 },
+                  maximum: { unit: 'business_day', value: 10 },
+                },
+              },
+            }
+          ]
+        : [
+            {
+              shipping_rate_data: {
+                type: 'fixed_amount',
+                fixed_amount: { amount: 599, currency: 'usd' },
+                display_name: 'Standard Shipping',
+                delivery_estimate: {
+                  minimum: { unit: 'business_day', value: 5 },
+                  maximum: { unit: 'business_day', value: 10 },
+                },
+              },
             },
-          },
-        },
-      ],
+            {
+              shipping_rate_data: {
+                type: 'fixed_amount',
+                fixed_amount: { amount: 0, currency: 'usd' },
+                display_name: '🎉 Free Shipping (orders over $60)',
+                delivery_estimate: {
+                  minimum: { unit: 'business_day', value: 7 },
+                  maximum: { unit: 'business_day', value: 14 },
+                },
+              },
+            }
+          ],
       metadata: {
         cart_items: JSON.stringify(cartItems.map(i => ({
           id: i.id,

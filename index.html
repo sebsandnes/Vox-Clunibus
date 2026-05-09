@@ -47,11 +47,8 @@
       <p data-i18n="shop_sub">New designs coming soon</p>
     </div>
     <div class="products-grid" id="productsGrid">
-      <!-- Empty placeholders -->
       <div class="product-placeholder">
-        <div class="placeholder-img">
-          <span>?</span>
-        </div>
+        <div class="placeholder-img"><span>?</span></div>
         <div class="placeholder-text">
           <div class="placeholder-line long"></div>
           <div class="placeholder-line short"></div>
@@ -138,6 +135,20 @@
       <button class="btn full" onclick="startCheckout()" data-i18n="cart_checkout">Checkout</button>
     </div>
   </aside>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+  <div class="modal" id="sizeModal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-img" id="modalImg"></div>
+    <div class="modal-info">
+      <h3 id="modalName"></h3>
+      <p class="modal-price" id="modalPrice"></p>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div id="sizeOptions"></div>
+      <button class="btn full-width" onclick="addFromModal()" style="margin-top:24px;">Add to Bag</button>
+    </div>
+  </div>
 
   <!-- TOAST -->
   <div class="toast" id="toast"></div>

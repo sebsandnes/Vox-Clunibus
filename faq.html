@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Voxclunibus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Mulish:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .faq-page { max-width: 720px; margin: 0 auto; padding: 120px 40px 80px; }
+    .faq-page h1 { font-family: var(--font-display); font-size: 36px; font-weight: 700; margin-bottom: 48px; }
+    .faq-section { margin-bottom: 48px; }
+    .faq-section h2 { font-family: var(--font-display); font-size: 16px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+    .faq-item { border-top: 1px solid var(--border); padding: 20px 0; }
+    .faq-q { font-size: 15px; font-weight: 500; margin-bottom: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-q::after { content: '+'; font-size: 20px; font-weight: 300; color: var(--gray); flex-shrink: 0; }
+    .faq-q.open::after { content: '−'; }
+    .faq-a { font-size: 14px; color: #555; line-height: 1.8; display: none; }
+    .faq-a.open { display: block; }
+    .size-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+    .size-table th { text-align: left; padding: 8px 12px; background: var(--off-white); font-weight: 600; border: 1px solid var(--border); }
+    .size-table td { padding: 8px 12px; border: 1px solid var(--border); color: #555; }
+    @media (max-width: 768px) { .faq-page { padding: 100px 20px 60px; } }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <a href="/" class="logo">VOXCLUNIBUS</a>
+    <nav><a href="/#shop">Shop</a><a href="faq.html">FAQ</a></nav>
+    <div class="header-right"></div>
+  </header>
+
+  <div class="faq-page">
+    <h1>FAQ</h1>
+
+    <div class="faq-section">
+      <h2>Orders & Shipping</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How long does shipping take?</div>
+        <div class="faq-a">Your shirt is printed within 2–5 business days, then shipped. Delivery takes 3–7 additional business days within Europe and the US. Total: roughly 5–12 business days from order to doorstep.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do you ship worldwide?</div>
+        <div class="faq-a">Yes! We ship to most countries via our partner Printful. Shipping rates are calculated at checkout based on your location.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Will I get a tracking number?</div>
+        <div class="faq-a">Yes. Once your order ships, you'll receive an email with a tracking link so you can follow your package.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I change or cancel my order?</div>
+        <div class="faq-a">Because shirts are printed on demand, orders go to production quickly. If you need to change or cancel, email us at support@voxclunibus.com as soon as possible. We'll do our best, but can't guarantee changes once printing has started.</div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>Returns & Refunds</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What if my shirt is defective or wrong?</div>
+        <div class="faq-a">We'll replace it or refund you immediately. Just send a photo to support@voxclunibus.com within 14 days of receiving your order.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I return if I just changed my mind?</div>
+        <div class="faq-a">EU/EEA customers have a 14-day right of withdrawal. The shirt must be unworn and in original condition. Return shipping is at your cost. Email us to start the process.</div>
+      </div>
+    </div>
+
+    <div class="faq-section" id="sizing">
+      <h2>Sizing</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What shirt do you use?</div>
+        <div class="faq-a">We use the Gildan 64000 Adult SoftStyle T-Shirt. It's 100% ring-spun cotton, pre-shrunk, and has a comfortable slightly fitted cut. Most people find it true to size.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q open" onclick="toggleFaq(this)">Size guide (chest width in cm)</div>
+        <div class="faq-a open">
+          <table class="size-table">
+            <tr><th>Size</th><th>Chest (cm)</th><th>Length (cm)</th></tr>
+            <tr><td>S</td><td>91–96</td><td>71</td></tr>
+            <tr><td>M</td><td>99–104</td><td>74</td></tr>
+            <tr><td>L</td><td>107–112</td><td>76</td></tr>
+            <tr><td>XL</td><td>117–122</td><td>79</td></tr>
+            <tr><td>2XL</td><td>127–132</td><td>81</td></tr>
+            <tr><td>3XL</td><td>137–142</td><td>84</td></tr>
+          </table>
+          <p style="margin-top:10px;">If you're between sizes, size up for a looser fit.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>Products</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Will the print fade?</div>
+        <div class="faq-a">Our shirts use direct-to-garment (DTG) printing which is durable when cared for properly. Wash inside-out in cold water and avoid tumble drying to keep the print looking sharp.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Are the colours accurate to the photos?</div>
+        <div class="faq-a">We do our best to show accurate product photos. Screen colours vary, and print colours can differ slightly from what you see on screen. If you're unsatisfied with the print quality, contact us and we'll sort it out.</div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>Still have questions?</h2>
+      <p style="font-size:15px; color:#555;">Email us at <a href="mailto:support@voxclunibus.com" style="color:var(--black); font-weight:500;">support@voxclunibus.com</a> — we typically reply within 1–2 business days.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.08);">
+      <p>© 2025 Voxclunibus. All rights reserved.</p>
+      <p><a href="privacy.html" style="color:rgba(255,255,255,0.5)">Privacy</a> · <a href="terms.html" style="color:rgba(255,255,255,0.5)">Terms</a> · <a href="returns.html" style="color:rgba(255,255,255,0.5)">Returns</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(el) {
+      el.classList.toggle('open');
+      el.nextElementSibling.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

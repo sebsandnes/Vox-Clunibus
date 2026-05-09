@@ -4,7 +4,7 @@ const PRODUCTS = [
     name: "It's Not a Chair, It's a Throne",
     price: 20.00,
     emoji: "🪑",
-    image: "images/throne.png",
+    image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffad82eb276.png",
     description: "You know what it is.",
     variants: {
       Black: {
@@ -19,7 +19,7 @@ const PRODUCTS = [
     name: "Born to Rot, Forced to Work",
     price: 20.00,
     emoji: "💀",
-    image: "images/born-to-rot.png",
+    image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffae86211c1.png",
     description: "The daily struggle.",
     variants: {
       Black: {
@@ -34,7 +34,7 @@ const PRODUCTS = [
     name: "Mentally in a Recliner",
     price: 20.00,
     emoji: "🛋️",
-    image: "images/recliner.png",
+    image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffad4fcf922.png",
     description: "Physically here. Mentally elsewhere.",
     variants: {
       Black: {
@@ -49,7 +49,7 @@ const PRODUCTS = [
     name: "I Support LGBTQ",
     price: 20.00,
     emoji: "🌈",
-    image: "images/lgbtq.png",
+    image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffacd6ece9e.png",
     description: "Lips, Giant-Ass, Boobs, Toes, Quickie.",
     variants: {
       Black: {
@@ -64,7 +64,7 @@ const PRODUCTS = [
     name: "I Support ADHD",
     price: 20.00,
     emoji: "🧠",
-    image: "images/adhd.png",
+    image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffada906fa2.png",
     description: "Alcohol, Drugs, Horrible Sleep, Doomscrolling.",
     variants: {
       Black: {
@@ -79,7 +79,7 @@ const PRODUCTS = [
     name: "AI Took My Job",
     price: 20.00,
     emoji: "🤖",
-    image: "images/ai.png",
+    image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffadeab8075.png",
     description: "Thanks for nothing.",
     variants: {
       Black: {

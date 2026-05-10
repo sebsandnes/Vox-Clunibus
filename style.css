@@ -204,3 +204,29 @@ footer { background: var(--black); color: rgba(255,255,255,0.5); }
   text-decoration: line-through;
 }
 .sold-out-label { display: none; }
+
+/* SHIPPING PROGRESS BAR */
+.shipping-progress {
+  margin-top: 16px;
+  padding: 14px 0 4px;
+  border-top: 1px solid var(--border);
+}
+.shipping-progress-msg {
+  font-size: 12px;
+  color: var(--gray);
+  margin-bottom: 8px;
+  text-align: center;
+}
+.shipping-progress-msg strong { color: var(--black); }
+.shipping-progress-bar {
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.shipping-progress-fill {
+  height: 100%;
+  background: var(--black);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}

@@ -15,6 +15,11 @@
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
+// Required for Stripe webhook signature verification
+module.exports.config = {
+  api: { bodyParser: false }
+};
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
@@ -22,7 +27,6 @@ module.exports = async function handler(req, res) {
   let event;
 
   try {
-    // Verify this request actually came from Stripe
     event = stripe.webhooks.constructEvent(
       req.body,
       sig,
@@ -33,7 +37,6 @@ module.exports = async function handler(req, res) {
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  // Only handle completed payments
   if (event.type !== 'checkout.session.completed') {
     return res.status(200).json({ received: true });
   }
@@ -41,7 +44,6 @@ module.exports = async function handler(req, res) {
   const session = event.data.object;
 
   try {
-    // Get full session with shipping details
     const fullSession = await stripe.checkout.sessions.retrieve(session.id, {
       expand: ['line_items', 'shipping_details']
     });
@@ -49,7 +51,6 @@ module.exports = async function handler(req, res) {
     const cartItems = JSON.parse(fullSession.metadata.cart_items);
     const shipping = fullSession.shipping_details;
 
-    // Build Printful order
     const printfulItems = cartItems.map(item => ({
       variant_id: item.variant_id,
       quantity: item.qty,
@@ -76,7 +77,6 @@ module.exports = async function handler(req, res) {
       }
     };
 
-    // Send order to Printful
     const pfResponse = await fetch('https://api.printful.com/orders', {
       method: 'POST',
       headers: {
@@ -95,7 +95,6 @@ module.exports = async function handler(req, res) {
 
     console.log('Printful order created:', pfData.result?.id);
 
-    // Confirm order with Printful (moves to production)
     await fetch(`https://api.printful.com/orders/${pfData.result.id}/confirm`, {
       method: 'POST',
       headers: {
@@ -109,9 +108,4 @@ module.exports = async function handler(req, res) {
     console.error('Order processing error:', err);
     return res.status(500).json({ error: err.message });
   }
-};
-
-// Required for Stripe webhook signature verification
-export const config = {
-  api: { bodyParser: false }
 };

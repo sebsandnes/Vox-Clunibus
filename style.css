@@ -195,3 +195,12 @@ footer { background: var(--black); color: rgba(255,255,255,0.5); }
 
 /* LANG SWITCHER REMOVED - styles kept for safety but hidden */
 .lang-switcher { display: none; }
+
+/* SOLD OUT SIZES */
+.size-btn.sold-out {
+  opacity: 0.35;
+  cursor: not-allowed;
+  position: relative;
+  text-decoration: line-through;
+}
+.sold-out-label { display: none; }

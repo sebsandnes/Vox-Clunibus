@@ -185,3 +185,13 @@ footer { background: var(--black); color: rgba(255,255,255,0.5); }
   .footer-bottom { padding: 16px 20px; flex-direction: column; }
   .legal-page { padding: 100px 20px 60px; }
 }
+
+/* SALE PRICING */
+.price-sale { font-size: 14px; font-weight: 700; color: #c0392b; }
+.price-original { font-size: 12px; color: var(--gray); text-decoration: line-through; margin-left: 6px; }
+.price-badge { display: inline-block; background: #c0392b; color: white; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; padding: 2px 6px; margin-left: 6px; vertical-align: middle; }
+.modal-price .price-sale { font-size: 20px; }
+.modal-price .price-original { font-size: 15px; }
+
+/* LANG SWITCHER REMOVED - styles kept for safety but hidden */
+.lang-switcher { display: none; }

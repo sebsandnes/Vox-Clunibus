@@ -6,6 +6,12 @@ const PRODUCTS = [
     originalPrice: 29.99,
     emoji: "🪑",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffad82eb276.png",
+    images: [
+      "images/unisex-basic-softstyle-t-shirt-black-front-6a008e6220ec0.png",
+      "images/unisex-basic-softstyle-t-shirt-black-left-front-6a008e622110c.png",
+      "images/unisex-basic-softstyle-t-shirt-black-front-and-back-6a008e6221352.png",
+      "images/unisex-basic-softstyle-t-shirt-black-back-6a008e6220a44.png"
+    ],
     description: "You sit differently when you know the truth. This isn't furniture — it's a statement of power. Wear it. Own it. Never explain it.",
     variants: {
       Black: {
@@ -22,6 +28,12 @@ const PRODUCTS = [
     originalPrice: 29.99,
     emoji: "💀",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffae86211c1.png",
+    images: [
+      "images/unisex-basic-softstyle-t-shirt-black-front-6a008eff6f6f3.png",
+      "images/unisex-basic-softstyle-t-shirt-black-left-front-6a008eff6f924.png",
+      "images/unisex-basic-softstyle-t-shirt-black-front-and-back-6a008eff6fb2d.png",
+      "images/unisex-basic-softstyle-t-shirt-black-back-6a008eff6f2e1.png"
+    ],
     description: "You didn't choose this life. This life chose you, handed you an alarm clock, and said 'good luck'. At least your shirt gets it.",
     variants: {
       Black: {
@@ -38,6 +50,12 @@ const PRODUCTS = [
     originalPrice: 29.99,
     emoji: "🛋️",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffad4fcf922.png",
+    images: [
+      "images/unisex-basic-softstyle-t-shirt-black-front-6a008e890420a.png",
+      "images/unisex-basic-softstyle-t-shirt-black-left-front-6a008e8904474.png",
+      "images/unisex-basic-softstyle-t-shirt-black-front-and-back-6a008e89046ed.png",
+      "images/unisex-basic-softstyle-t-shirt-black-back-6a008e8903d78.png"
+    ],
     description: "Body: present. Mind: fully reclined, snacks nearby, do not disturb. For everyone who shows up but refuses to mentally commit.",
     variants: {
       Black: {
@@ -54,6 +72,12 @@ const PRODUCTS = [
     originalPrice: 29.99,
     emoji: "🌈",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffacd6ece9e.png",
+    images: [
+      "images/unisex-basic-softstyle-t-shirt-black-front-6a008edea0bbc.png",
+      "images/unisex-basic-softstyle-t-shirt-black-left-front-6a008edea10e9.png",
+      "images/unisex-basic-softstyle-t-shirt-black-front-and-back-6a008edea169f.png",
+      "images/unisex-basic-softstyle-t-shirt-black-back-6a008edea0447.png"
+    ],
     description: "Lips. Giant-Ass. Boobs. Toes. Quickie. You thought it was something else, didn't you? Wear it and watch people do a double take.",
     variants: {
       Black: {
@@ -70,6 +94,12 @@ const PRODUCTS = [
     originalPrice: 29.99,
     emoji: "🧠",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffada906fa2.png",
+    images: [
+      "images/unisex-basic-softstyle-t-shirt-black-front-6a008e105cedc.png",
+      "images/unisex-basic-softstyle-t-shirt-black-left-front-6a008e105d4a9.png",
+      "images/unisex-basic-softstyle-t-shirt-black-front-and-back-6a008e105da3e.png",
+      "images/unisex-basic-softstyle-t-shirt-black-back-6a008e105c65f.png"
+    ],
     description: "Alcohol. Drugs. Horrible Sleep. Doomscrolling. Wait — you thought this was about something else? Either way, same energy.",
     variants: {
       Black: {
@@ -86,6 +116,12 @@ const PRODUCTS = [
     originalPrice: 29.99,
     emoji: "🤖",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffadeab8075.png",
+    images: [
+      "images/unisex-basic-softstyle-t-shirt-black-front-6a008cafc60e4.png",
+      "images/unisex-basic-softstyle-t-shirt-black-left-front-6a008cafc6698.png",
+      "images/unisex-basic-softstyle-t-shirt-black-front-and-back-6a008cafc6c54.png",
+      "images/unisex-basic-softstyle-t-shirt-black-back-6a008cafc59aa.png"
+    ],
     description: "It happened fast. One day you had a career, the next day a chatbot does it better and charges less. Wear your grief with dignity.",
     soldOutSizes: ["3XL"],
     variants: {

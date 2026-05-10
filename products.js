@@ -6,7 +6,7 @@ const PRODUCTS = [
     originalPrice: 29.99,
     emoji: "🪑",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffad82eb276.png",
-    description: "You know what it is.",
+    description: "You sit differently when you know the truth. This isn't furniture — it's a statement of power. Wear it. Own it. Never explain it.",
     variants: {
       Black: {
         S: "69ff0e5577d792", M: "69ff0e5577d831", L: "69ff0e5577d8c1",
@@ -22,7 +22,7 @@ const PRODUCTS = [
     originalPrice: 29.99,
     emoji: "💀",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffae86211c1.png",
-    description: "The daily struggle.",
+    description: "You didn't choose this life. This life chose you, handed you an alarm clock, and said 'good luck'. At least your shirt gets it.",
     variants: {
       Black: {
         S: "69ff0c10993dd4", M: "69ff0c10993e33", L: "69ff0c10993e99",
@@ -38,7 +38,7 @@ const PRODUCTS = [
     originalPrice: 29.99,
     emoji: "🛋️",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffad4fcf922.png",
-    description: "Physically here. Mentally elsewhere.",
+    description: "Body: present. Mind: fully reclined, snacks nearby, do not disturb. For everyone who shows up but refuses to mentally commit.",
     variants: {
       Black: {
         S: "69ff0d55e9b126", M: "69ff0d55e9b185", L: "69ff0d55e9b1d2",
@@ -54,7 +54,7 @@ const PRODUCTS = [
     originalPrice: 29.99,
     emoji: "🌈",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffacd6ece9e.png",
-    description: "Lips, Giant-Ass, Boobs, Toes, Quickie.",
+    description: "Lips. Giant-Ass. Boobs. Toes. Quickie. You thought it was something else, didn't you? Wear it and watch people do a double take.",
     variants: {
       Black: {
         S: "69ff0c91846035", M: "69ff0c91846098", L: "69ff0c918460f9",
@@ -70,7 +70,7 @@ const PRODUCTS = [
     originalPrice: 29.99,
     emoji: "🧠",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffada906fa2.png",
-    description: "Alcohol, Drugs, Horrible Sleep, Doomscrolling.",
+    description: "Alcohol. Drugs. Horrible Sleep. Doomscrolling. Wait — you thought this was about something else? Either way, same energy.",
     variants: {
       Black: {
         S: "69ff0fe399fc64", M: "69ff0fe399fcc9", L: "69ff0fe399fd12",
@@ -86,7 +86,8 @@ const PRODUCTS = [
     originalPrice: 29.99,
     emoji: "🤖",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffadeab8075.png",
-    description: "Thanks for nothing.",
+    description: "It happened fast. One day you had a career, the next day a chatbot does it better and charges less. Wear your grief with dignity.",
+    soldOutSizes: ["3XL"],
     variants: {
       Black: {
         S: "69ff10766f3868", M: "69ff10766f38d5", L: "69ff10766f3922",

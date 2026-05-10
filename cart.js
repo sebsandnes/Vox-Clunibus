@@ -51,7 +51,12 @@ function renderCart() {
       <div class="cart-item-info">
         <div class="cart-item-name">${item.name}</div>
         <div class="cart-item-size">Size: ${item.size} · Qty: ${item.qty}</div>
-        <div class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</div>
+        <div class="cart-item-price">
+          ${item.originalPrice
+            ? `<span class="price-sale">$${(item.price * item.qty).toFixed(2)}</span> <span class="price-original">$${(item.originalPrice * item.qty).toFixed(2)}</span>`
+            : `$${(item.price * item.qty).toFixed(2)}`
+          }
+        </div>
       </div>
       <button class="cart-item-remove" onclick="removeFromCart(${i})">×</button>
     </div>

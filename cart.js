@@ -1,6 +1,7 @@
 let cart = [];
-let selectedSize = null;
-let currentProduct = null;
+// selectedSize and currentProduct are declared in product.html
+if (typeof selectedSize === 'undefined') var selectedSize = null;
+if (typeof currentProduct === 'undefined') var currentProduct = null;
 
 function addToCart(product, size) {
   const existing = cart.find(i => i.id === product.id && i.size === size);

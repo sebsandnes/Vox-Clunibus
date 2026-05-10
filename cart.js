@@ -39,7 +39,7 @@ function renderCart() {
   const totalEl = document.getElementById('cartTotal');
 
   if (cart.length === 0) {
-    container.innerHTML = `<p class="cart-empty">${t('cart_empty')}</p>`;
+    container.innerHTML = `<p class="cart-empty">Your bag is empty.</p>`;
     totalEl.textContent = '$0.00';
     return;
   }
@@ -59,7 +59,7 @@ function renderCart() {
   totalEl.textContent = '$' + getCartTotal().toFixed(2);
 }
 
-function openCart() { 
+function openCart() {
   renderCart();
   document.getElementById('cart').classList.add('open');
   document.getElementById('overlay').classList.add('active');
@@ -78,8 +78,8 @@ function showToast(msg) {
 }
 
 async function startCheckout() {
-  if (cart.length === 0) { showToast(t('cart_empty')); return; }
-  // FIX: use correct selector .btn-checkout instead of .cart-footer .btn
+  if (cart.length === 0) { showToast('Your bag is empty.'); return; }
+  // FIX: correct selector - was '.cart-footer .btn', button actually has class '.btn-checkout'
   const btn = document.querySelector('.btn-checkout');
   btn.textContent = '...';
   btn.disabled = true;
@@ -94,15 +94,15 @@ async function startCheckout() {
     else { throw new Error(data.error); }
   } catch(err) {
     showToast('Checkout failed. Please try again.');
-    btn.textContent = t('cart_checkout');
+    btn.textContent = 'Checkout →';
     btn.disabled = false;
   }
 }
 
 function handleNotify() {
   const email = document.getElementById('notifyEmail').value;
-  if (!email || !email.includes('@')) { showToast(t('notify_error')); return; }
-  showToast(t('notify_success'));
+  if (!email || !email.includes('@')) { showToast('Please enter a valid email.'); return; }
+  showToast("You're on the list!");
   document.getElementById('notifyEmail').value = '';
 }
 

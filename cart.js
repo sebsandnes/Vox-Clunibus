@@ -1,5 +1,6 @@
+const FREE_SHIPPING_THRESHOLD = 50;
+
 let cart = [];
-// selectedSize and currentProduct are declared in product.html
 if (typeof selectedSize === 'undefined') var selectedSize = null;
 if (typeof currentProduct === 'undefined') var currentProduct = null;
 
@@ -35,6 +36,28 @@ function getCartTotal() {
   return cart.reduce((s, i) => s + i.price * i.qty, 0);
 }
 
+function renderShippingProgress() {
+  const total = getCartTotal();
+  const remaining = FREE_SHIPPING_THRESHOLD - total;
+  const pct = Math.min((total / FREE_SHIPPING_THRESHOLD) * 100, 100);
+
+  if (total === 0) return '';
+
+  if (remaining <= 0) {
+    return `
+      <div class="shipping-progress">
+        <p class="shipping-progress-msg">🎉 You've unlocked free shipping!</p>
+        <div class="shipping-progress-bar"><div class="shipping-progress-fill" style="width:100%"></div></div>
+      </div>`;
+  }
+
+  return `
+    <div class="shipping-progress">
+      <p class="shipping-progress-msg">Add <strong>$${remaining.toFixed(2)}</strong> more for free shipping</p>
+      <div class="shipping-progress-bar"><div class="shipping-progress-fill" style="width:${pct}%"></div></div>
+    </div>`;
+}
+
 function renderCart() {
   const container = document.getElementById('cartItems');
   const totalEl = document.getElementById('cartTotal');
@@ -45,7 +68,7 @@ function renderCart() {
     return;
   }
 
-  container.innerHTML = cart.map((item, i) => `
+  const itemsHTML = cart.map((item, i) => `
     <div class="cart-item">
       <div class="cart-item-img">${item.image ? `<img src="${item.image}" style="width:100%;height:100%;object-fit:cover;">` : item.emoji}</div>
       <div class="cart-item-info">
@@ -62,6 +85,7 @@ function renderCart() {
     </div>
   `).join('');
 
+  container.innerHTML = itemsHTML + renderShippingProgress();
   totalEl.textContent = '$' + getCartTotal().toFixed(2);
 }
 
@@ -85,7 +109,6 @@ function showToast(msg) {
 
 async function startCheckout() {
   if (cart.length === 0) { showToast('Your bag is empty.'); return; }
-  // FIX: correct selector - was '.cart-footer .btn', button actually has class '.btn-checkout'
   const btn = document.querySelector('.btn-checkout');
   btn.textContent = '...';
   btn.disabled = true;

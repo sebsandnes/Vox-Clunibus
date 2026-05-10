@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Right of Withdrawal — Voxclunibus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Mulish:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .withdrawal-form {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+    }
+    .withdrawal-form h1 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .withdrawal-form .updated {
+      font-size: 12px;
+      color: var(--gray);
+      margin-bottom: 32px;
+    }
+    .withdrawal-form p {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      font-family: var(--font-body);
+      font-size: 14px;
+      outline: none;
+      background: white;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--black);
+    }
+    .form-group textarea { height: 80px; resize: vertical; }
+    .form-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 32px 0;
+    }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--black);
+      color: white;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+    .form-submit:hover { background: #333; }
+    .form-note {
+      font-size: 12px;
+      color: var(--gray);
+      margin-top: 12px;
+      text-align: center;
+    }
+    .success-msg {
+      display: none;
+      background: #f0faf4;
+      border: 1px solid #a8d5b5;
+      padding: 16px 20px;
+      font-size: 14px;
+      color: #2d6a4f;
+      margin-top: 20px;
+    }
+    @media (max-width: 768px) {
+      .withdrawal-form { padding: 100px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <a href="/" class="logo">VOXCLUNIBUS</a>
+    <nav><a href="/#shop">Shop</a><a href="faq.html">FAQ</a></nav>
+    <div class="header-right"></div>
+  </header>
+
+  <div class="withdrawal-form">
+    <h1>Right of Withdrawal</h1>
+    <p class="updated">Standard withdrawal form — EU/EEA Consumer Rights Directive</p>
+
+    <p>To exercise your right of withdrawal, please complete and submit this form within <strong>14 days</strong> of receiving your order. We will confirm receipt by email and process your refund within 14 days of receiving the returned item.</p>
+
+    <hr class="form-divider">
+
+    <p><strong>To:</strong> Voxclunibus, support@voxclunibus.com</p>
+
+    <div class="form-group">
+      <label>Your full name</label>
+      <input type="text" id="wf-name" placeholder="Full name" />
+    </div>
+    <div class="form-group">
+      <label>Your email address</label>
+      <input type="email" id="wf-email" placeholder="email@example.com" />
+    </div>
+    <div class="form-group">
+      <label>Order number</label>
+      <input type="text" id="wf-order" placeholder="e.g. cs_live_..." />
+    </div>
+    <div class="form-group">
+      <label>Product(s) to return</label>
+      <input type="text" id="wf-product" placeholder="e.g. Born to Rot, Forced to Work — Size M" />
+    </div>
+    <div class="form-group">
+      <label>Date order was received</label>
+      <input type="date" id="wf-date" />
+    </div>
+    <div class="form-group">
+      <label>Reason (optional)</label>
+      <textarea id="wf-reason" placeholder="You are not required to give a reason."></textarea>
+    </div>
+
+    <p style="font-size:13px;color:var(--gray);">I hereby give notice that I withdraw from my contract of sale of the above goods.</p>
+
+    <button class="form-submit" onclick="submitWithdrawal()">Submit withdrawal form</button>
+    <p class="form-note">We will confirm receipt within 1–2 business days.</p>
+
+    <div class="success-msg" id="successMsg">
+      ✓ Your withdrawal form has been submitted. Please check your email for confirmation and return instructions.
+    </div>
+
+    <hr class="form-divider">
+    <p style="font-size:13px;">Questions? Email us at <a href="mailto:support@voxclunibus.com" style="color:var(--black);text-decoration:underline;">support@voxclunibus.com</a></p>
+  </div>
+
+  <footer>
+    <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.08);">
+      <p>© 2026 Voxclunibus. All rights reserved.</p>
+      <p><a href="privacy.html" style="color:rgba(255,255,255,0.5)">Privacy</a> · <a href="terms.html" style="color:rgba(255,255,255,0.5)">Terms</a> · <a href="returns.html" style="color:rgba(255,255,255,0.5)">Returns</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function submitWithdrawal() {
+      const name = document.getElementById('wf-name').value.trim();
+      const email = document.getElementById('wf-email').value.trim();
+      const order = document.getElementById('wf-order').value.trim();
+      const product = document.getElementById('wf-product').value.trim();
+      const date = document.getElementById('wf-date').value;
+
+      if (!name || !email || !order || !product || !date) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      // Build mailto link as fallback
+      const subject = encodeURIComponent(`Withdrawal Form — Order ${order}`);
+      const body = encodeURIComponent(
+        `RIGHT OF WITHDRAWAL\n\n` +
+        `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Order number: ${order}\n` +
+        `Product(s): ${product}\n` +
+        `Date received: ${date}\n` +
+        `Reason: ${document.getElementById('wf-reason').value || 'Not provided'}\n\n` +
+        `I hereby give notice that I withdraw from my contract of sale of the above goods.`
+      );
+
+      window.location.href = `mailto:support@voxclunibus.com?subject=${subject}&body=${body}`;
+
+      document.getElementById('successMsg').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

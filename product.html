@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product — Voxclunibus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Mulish:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .product-page {
+      min-height: 100vh;
+      padding-top: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* LEFT: IMAGE */
+    .product-page-img {
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      background: var(--cream);
+      overflow: hidden;
+    }
+    .product-page-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* RIGHT: INFO */
+    .product-page-info {
+      padding: 60px 56px 80px;
+      overflow-y: auto;
+    }
+    .product-page-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 40px;
+      transition: color 0.15s;
+    }
+    .product-page-back:hover { color: var(--black); }
+    .product-page-info h1 {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .product-page-price {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .product-page-price .price-sale { font-size: 22px; font-weight: 700; color: #c0392b; }
+    .product-page-price .price-original { font-size: 16px; color: var(--gray); text-decoration: line-through; }
+    .product-page-price .price-badge {
+      background: #c0392b; color: white;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 1.5px; padding: 3px 8px;
+    }
+    .product-page-desc {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* SIZE SELECTOR */
+    .product-page-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .product-page-sizes {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .product-page-sizes .size-btn {
+      padding: 10px 18px;
+      font-size: 13px;
+    }
+
+    /* ADD TO BAG */
+    .product-page-add {
+      width: 100%;
+      padding: 18px;
+      background: var(--black);
+      color: white;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-bottom: 12px;
+    }
+    .product-page-add:hover { background: #333; }
+    .product-page-note {
+      font-size: 12px;
+      color: var(--gray);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* DETAILS */
+    .product-page-details {
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      margin-bottom: 32px;
+    }
+    .product-page-details h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .product-page-details ul {
+      list-style: none;
+      padding: 0;
+    }
+    .product-page-details ul li {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.8;
+      padding-left: 16px;
+      position: relative;
+    }
+    .product-page-details ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--light-gray);
+    }
+
+    /* SIZE GUIDE */
+    .size-guide {
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+    }
+    .size-guide h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .size-guide h3::after { content: '+'; font-size: 18px; font-weight: 300; color: var(--gray); }
+    .size-guide h3.open::after { content: '−'; }
+    .size-guide-table { display: none; }
+    .size-guide-table.open { display: block; }
+    .size-guide-table table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    .size-guide-table th {
+      text-align: left;
+      padding: 8px 12px;
+      background: var(--off-white);
+      font-weight: 600;
+      border: 1px solid var(--border);
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+    .size-guide-table td {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      color: var(--gray);
+    }
+    .size-guide-table p {
+      font-size: 12px;
+      color: var(--gray);
+      margin-top: 8px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .product-page {
+        grid-template-columns: 1fr;
+      }
+      .product-page-img {
+        position: relative;
+        top: 0;
+        height: 70vw;
+      }
+      .product-page-info {
+        padding: 32px 20px 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <a href="/" class="logo">VOXCLUNIBUS</a>
+    <nav>
+      <a href="/#shop">Shop</a>
+      <a href="/faq.html">FAQ</a>
+    </nav>
+    <div class="header-right">
+      <button class="cart-btn" onclick="openCart()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="product-page" id="productPage">
+    <!-- Filled by JS -->
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="overlay" id="overlay" onclick="closeCart()"></div>
+  <aside class="cart" id="cart">
+    <div class="cart-header">
+      <h3>Your bag</h3>
+      <button onclick="closeCart()" class="close-btn">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Your bag is empty.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-note">Shipping calculated at checkout</div>
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="btn-checkout" onclick="startCheckout()">Checkout →</button>
+      <p class="cart-secure">🔒 Secure checkout via Stripe</p>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="cart.js"></script>
+  <script src="products.js"></script>
+  <script>
+    let selectedSize = null;
+    let currentProduct = null;
+
+    function getProductFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      return PRODUCTS.find(p => p.id === id) || PRODUCTS[0];
+    }
+
+    function renderProduct() {
+      currentProduct = getProductFromUrl();
+      const p = currentProduct;
+      document.title = `${p.name} — Voxclunibus`;
+
+      const priceHTML = p.originalPrice
+        ? `<span class="price-sale">$${p.price.toFixed(2)}</span>
+           <span class="price-original">$${p.originalPrice.toFixed(2)}</span>
+           <span class="price-badge">SALE</span>`
+        : `<span style="font-size:22px;font-weight:700;">$${p.price.toFixed(2)}</span>`;
+
+      const sizes = Object.keys(p.variants[p.defaultColor]);
+      const sizeButtons = sizes.map(s =>
+        `<button class="size-btn" onclick="selectSize('${s}', this)">${s}</button>`
+      ).join('');
+
+      document.getElementById('productPage').innerHTML = `
+        <div class="product-page-img">
+          ${p.image
+            ? `<img src="${p.image}" alt="${p.name}">`
+            : `<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:120px;">${p.emoji}</div>`
+          }
+        </div>
+        <div class="product-page-info">
+          <a href="/#shop" class="product-page-back">← Back to shop</a>
+          <h1>${p.name}</h1>
+          <div class="product-page-price">${priceHTML}</div>
+          <p class="product-page-desc">${p.description || ''}</p>
+
+          <span class="product-page-label">Size</span>
+          <div class="product-page-sizes">${sizeButtons}</div>
+
+          <button class="product-page-add" onclick="addToCartFromPage()">Add to bag</button>
+          <p class="product-page-note">🔒 Secure checkout · Free returns within 14 days · Printed on demand</p>
+
+          <div class="product-page-details">
+            <h3>Product details</h3>
+            <ul>
+              <li>Gildan 64000 SoftStyle — 100% ring-spun cotton</li>
+              <li>Pre-shrunk, true to size</li>
+              <li>Direct-to-garment (DTG) print</li>
+              <li>Printed on demand — no waste, no stock</li>
+              <li>Ships within 2–5 business days</li>
+            </ul>
+          </div>
+
+          <div class="size-guide">
+            <h3 onclick="toggleSizeGuide(this)">Size guide</h3>
+            <div class="size-guide-table">
+              <table>
+                <tr><th>Size</th><th>Chest (cm)</th><th>Length (cm)</th></tr>
+                <tr><td>S</td><td>91–96</td><td>71</td></tr>
+                <tr><td>M</td><td>99–104</td><td>74</td></tr>
+                <tr><td>L</td><td>107–112</td><td>76</td></tr>
+                <tr><td>XL</td><td>117–122</td><td>79</td></tr>
+                <tr><td>2XL</td><td>127–132</td><td>81</td></tr>
+                <tr><td>3XL</td><td>137–142</td><td>84</td></tr>
+              </table>
+              <p>If you're between sizes, size up for a looser fit.</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function selectSize(size, btn) {
+      selectedSize = size;
+      document.querySelectorAll('.product-page-sizes .size-btn')
+        .forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    }
+
+    function addToCartFromPage() {
+      if (!selectedSize) { showToast('Please select a size!'); return; }
+      const item = {
+        ...currentProduct,
+        size: selectedSize,
+        color: currentProduct.defaultColor,
+        variantId: currentProduct.variants[currentProduct.defaultColor][selectedSize]
+      };
+      addToCart(item, selectedSize);
+      showToast('Added to bag!');
+      openCart();
+    }
+
+    function toggleSizeGuide(el) {
+      el.classList.toggle('open');
+      el.nextElementSibling.classList.toggle('open');
+    }
+
+    renderProduct();
+    updateBadge();
+  </script>
+  <script src="cookie-banner.js"></script>
+</body>
+</html>

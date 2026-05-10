@@ -2,15 +2,26 @@ function renderProducts() {
   if (!PRODUCTS || PRODUCTS.length === 0) return;
 
   const grid = document.getElementById('productsGrid');
-  grid.innerHTML = PRODUCTS.map(p => `
+  grid.innerHTML = PRODUCTS.map(p => {
+    const priceHTML = p.originalPrice
+      ? `<div class="product-price">
+           <span class="price-sale">$${p.price.toFixed(2)}</span>
+           <span class="price-original">$${p.originalPrice.toFixed(2)}</span>
+           <span class="price-badge">SALE</span>
+         </div>`
+      : `<div class="product-price">$${p.price.toFixed(2)}</div>`;
+
+    return `
     <div class="product-card" onclick="openModal(${JSON.stringify(p).replace(/"/g, '&quot;')})">
       <div class="product-img">
-        ${p.image ? `<img src="${p.image}" style="width:100%;height:100%;object-fit:cover;">` : p.emoji}
+        ${p.image ? `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">` : `<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:72px;">${p.emoji}</div>`}
       </div>
-      <div class="product-name">${p.name}</div>
-      <div class="product-price">$${p.price.toFixed(2)}</div>
-    </div>
-  `).join('');
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        ${priceHTML}
+      </div>
+    </div>`;
+  }).join('');
 }
 
 function openModal(product) {
@@ -28,11 +39,16 @@ function openModal(product) {
     `<button class="size-btn" onclick="selectSize('${s}', this)">${s}</button>`
   ).join('');
 
+  const modalPriceHTML = product.originalPrice
+    ? `<span class="price-sale">$${product.price.toFixed(2)}</span>
+       <span class="price-original">$${product.originalPrice.toFixed(2)}</span>`
+    : `$${product.price.toFixed(2)}`;
+
   document.getElementById('modalImg').innerHTML = product.image
-    ? `<img src="${product.image}" style="width:100%;height:100%;object-fit:cover;">`
-    : product.emoji;
+    ? `<img src="${product.image}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;">`
+    : `<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:80px;">${product.emoji}</div>`;
   document.getElementById('modalName').textContent = product.name;
-  document.getElementById('modalPrice').textContent = '$' + product.price.toFixed(2);
+  document.getElementById('modalPrice').innerHTML = modalPriceHTML;
   document.getElementById('modalDesc').textContent = product.description || '';
 
   document.getElementById('sizeOptions').innerHTML =
@@ -67,7 +83,7 @@ function addFromModal() {
   const item = { ...currentProduct, size: selectedSize, color, variantId };
   addToCart(item, selectedSize);
   closeModal();
-  showToast('Added to cart!');
+  showToast('Added to bag!');
   openCart();
 }
 

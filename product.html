@@ -6,6 +6,7 @@
   <title>Product — Voxclunibus</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Mulish:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="style.css" />
   <style>
     .product-page {
@@ -280,8 +281,11 @@
         : `<span style="font-size:22px;font-weight:700;">$${p.price.toFixed(2)}</span>`;
 
       const sizes = Object.keys(p.variants[p.defaultColor]);
+      const soldOut = p.soldOutSizes || [];
       const sizeButtons = sizes.map(s =>
-        `<button class="size-btn" onclick="selectSize('${s}', this)">${s}</button>`
+        `<button class="size-btn${soldOut.includes(s) ? ' sold-out' : ''}" 
+          onclick="${soldOut.includes(s) ? '' : `selectSize('${s}', this)`}"
+          ${soldOut.includes(s) ? 'disabled title="Sold out"' : ''}>${s}${soldOut.includes(s) ? '<span class="sold-out-label">sold out</span>' : ''}</button>`
       ).join('');
 
       document.getElementById('productPage').innerHTML = `

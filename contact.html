@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Voxclunibus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Mulish:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+    }
+    .contact-page h1 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .contact-page .subtitle {
+      font-size: 16px;
+      color: var(--gray);
+      margin-bottom: 56px;
+      line-height: 1.6;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+    .contact-card {
+      border: 1px solid var(--border);
+      padding: 28px;
+    }
+    .contact-card .icon {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .contact-card h3 {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .contact-card p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .contact-card a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+      text-decoration: underline;
+    }
+    .contact-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+    .contact-faq h2 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .contact-faq-item {
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+    }
+    .contact-faq-item h4 {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .contact-faq-item p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .contact-page { padding: 100px 20px 60px; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <a href="/" class="logo">VOXCLUNIBUS</a>
+    <nav>
+      <a href="/#shop">Shop</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="header-right"></div>
+  </header>
+
+  <div class="contact-page">
+    <h1>Get in touch</h1>
+    <p class="subtitle">We're a small operation — real people, real responses. We typically reply within 1–2 business days.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon">📦</div>
+        <h3>Orders & shipping</h3>
+        <p>Questions about your order, tracking, or delivery times? We've got you.</p>
+        <a href="mailto:support@voxclunibus.com">support@voxclunibus.com</a>
+      </div>
+      <div class="contact-card">
+        <div class="icon">↩️</div>
+        <h3>Returns & refunds</h3>
+        <p>Wrong size, damaged item, or just changed your mind? We'll sort it out.</p>
+        <a href="returns.html">View returns policy →</a>
+      </div>
+      <div class="contact-card">
+        <div class="icon">🖨️</div>
+        <h3>Print quality</h3>
+        <p>Not happy with how your shirt turned out? Send us a photo and we'll make it right.</p>
+        <a href="mailto:support@voxclunibus.com">support@voxclunibus.com</a>
+      </div>
+      <div class="contact-card">
+        <div class="icon">💬</div>
+        <h3>Everything else</h3>
+        <p>Wholesale, collabs, complaints, compliments, or just want to say hi.</p>
+        <a href="mailto:support@voxclunibus.com">support@voxclunibus.com</a>
+      </div>
+    </div>
+
+    <hr class="contact-divider">
+
+    <div class="contact-faq">
+      <h2>Quick answers</h2>
+      <div class="contact-faq-item">
+        <h4>How long until I get a response?</h4>
+        <p>Usually within 1–2 business days. We don't have a support team — it's just us — so we appreciate your patience.</p>
+      </div>
+      <div class="contact-faq-item">
+        <h4>Where is my order?</h4>
+        <p>Once your order ships, you'll receive a tracking email from Printful. Production takes 2–5 business days, then shipping takes another 3–7 days depending on your location.</p>
+      </div>
+      <div class="contact-faq-item">
+        <h4>Can I change or cancel my order?</h4>
+        <p>Email us as soon as possible. We can't guarantee changes once printing has started, but we'll do our best.</p>
+      </div>
+      <div class="contact-faq-item">
+        <h4>Something else?</h4>
+        <p>Check out the <a href="faq.html" style="color:var(--black);text-decoration:underline;">full FAQ</a> — it covers sizing, returns, print quality, and more.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.08);">
+      <p>© 2026 Voxclunibus. All rights reserved.</p>
+      <p><a href="privacy.html" style="color:rgba(255,255,255,0.5)">Privacy</a> · <a href="terms.html" style="color:rgba(255,255,255,0.5)">Terms</a> · <a href="returns.html" style="color:rgba(255,255,255,0.5)">Returns</a></p>
+    </div>
+  </footer>
+</body>
+</html>

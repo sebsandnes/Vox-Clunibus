@@ -11,9 +11,6 @@ function renderProducts() {
       <div class="product-price">$${p.price.toFixed(2)}</div>
     </div>
   `).join('');
-
-  document.querySelector('.coming-soon').style.display = 'none';
-  document.querySelector('.notify-form').style.display = 'none';
 }
 
 function openModal(product) {

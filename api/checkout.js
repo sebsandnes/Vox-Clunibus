@@ -1,6 +1,6 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-const FREE_SHIPPING_THRESHOLD = 60; // USD
+const FREE_SHIPPING_THRESHOLD = 50; // USD
 
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -33,7 +33,6 @@ module.exports = async function handler(req, res) {
       quantity: item.qty || 1,
     }));
 
-    // Calculate cart total server-side to enforce free shipping threshold
     const cartTotal = cartItems.reduce((sum, item) => sum + (item.price || 20) * (item.qty || 1), 0);
     const qualifiesForFreeShipping = cartTotal >= FREE_SHIPPING_THRESHOLD;
 

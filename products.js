@@ -2,7 +2,8 @@ const PRODUCTS = [
   {
     id: "prod_001",
     name: "It's Not a Chair, It's a Throne",
-    price: 20.00,
+    price: 19.99,
+    originalPrice: 29.99,
     emoji: "🪑",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffad82eb276.png",
     description: "You know what it is.",
@@ -17,7 +18,8 @@ const PRODUCTS = [
   {
     id: "prod_002",
     name: "Born to Rot, Forced to Work",
-    price: 20.00,
+    price: 19.99,
+    originalPrice: 29.99,
     emoji: "💀",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffae86211c1.png",
     description: "The daily struggle.",
@@ -32,7 +34,8 @@ const PRODUCTS = [
   {
     id: "prod_003",
     name: "Mentally in a Recliner",
-    price: 20.00,
+    price: 19.99,
+    originalPrice: 29.99,
     emoji: "🛋️",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffad4fcf922.png",
     description: "Physically here. Mentally elsewhere.",
@@ -47,7 +50,8 @@ const PRODUCTS = [
   {
     id: "prod_004",
     name: "I Support LGBTQ",
-    price: 20.00,
+    price: 19.99,
+    originalPrice: 29.99,
     emoji: "🌈",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffacd6ece9e.png",
     description: "Lips, Giant-Ass, Boobs, Toes, Quickie.",
@@ -62,7 +66,8 @@ const PRODUCTS = [
   {
     id: "prod_005",
     name: "I Support ADHD",
-    price: 20.00,
+    price: 19.99,
+    originalPrice: 29.99,
     emoji: "🧠",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffada906fa2.png",
     description: "Alcohol, Drugs, Horrible Sleep, Doomscrolling.",
@@ -77,7 +82,8 @@ const PRODUCTS = [
   {
     id: "prod_006",
     name: "AI Took My Job",
-    price: 20.00,
+    price: 19.99,
+    originalPrice: 29.99,
     emoji: "🤖",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-69ffadeab8075.png",
     description: "Thanks for nothing.",

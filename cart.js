@@ -3,7 +3,7 @@ let selectedSize = null;
 let currentProduct = null;
 
 function addToCart(product, size) {
-  const existing = cart.find(i => i.id === product.id && i.size === size);
+  const existing = cart.find(i => i.id === product.id && i.size === size && i.color === product.color);
   if (existing) { existing.qty += 1; }
   else { cart.push({ ...product, size, qty: 1 }); }
   saveCart(); renderCart(); updateBadge();
@@ -27,7 +27,8 @@ function loadCart() {
 
 function updateBadge() {
   const total = cart.reduce((s, i) => s + i.qty, 0);
-  document.getElementById('cartCount').textContent = total;
+  const badge = document.getElementById('cartCount');
+  if (badge) badge.textContent = total;
 }
 
 function getCartTotal() {
@@ -37,29 +38,33 @@ function getCartTotal() {
 function renderCart() {
   const container = document.getElementById('cartItems');
   const totalEl = document.getElementById('cartTotal');
+  if (!container) return;
 
   if (cart.length === 0) {
-    container.innerHTML = `<p class="cart-empty">${t('cart_empty')}</p>`;
-    totalEl.textContent = '$0.00';
+    container.innerHTML = `<p class="cart-empty">Your bag is empty.</p>`;
+    if (totalEl) totalEl.textContent = '$0.00';
     return;
   }
 
   container.innerHTML = cart.map((item, i) => `
     <div class="cart-item">
-      <div class="cart-item-img">${item.image ? `<img src="${item.image}" style="width:100%;height:100%;object-fit:cover;">` : item.emoji}</div>
+      ${item.image
+        ? `<img class="cart-item-img" src="${item.image}" alt="${item.name}">`
+        : `<div class="cart-item-img" style="display:flex;align-items:center;justify-content:center;font-size:28px;">${item.emoji}</div>`
+      }
       <div class="cart-item-info">
         <div class="cart-item-name">${item.name}</div>
-        <div class="cart-item-size">Size: ${item.size} · Qty: ${item.qty}</div>
+        <div class="cart-item-meta">${item.color || 'Black'} · Size ${item.size} · Qty ${item.qty}</div>
         <div class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</div>
       </div>
       <button class="cart-item-remove" onclick="removeFromCart(${i})">×</button>
     </div>
   `).join('');
 
-  totalEl.textContent = '$' + getCartTotal().toFixed(2);
+  if (totalEl) totalEl.textContent = '$' + getCartTotal().toFixed(2);
 }
 
-function openCart() { 
+function openCart() {
   renderCart();
   document.getElementById('cart').classList.add('open');
   document.getElementById('overlay').classList.add('active');
@@ -72,16 +77,18 @@ function closeCart() {
 
 function showToast(msg) {
   const toast = document.getElementById('toast');
+  if (!toast) return;
   toast.textContent = msg;
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 2500);
 }
 
 async function startCheckout() {
-  if (cart.length === 0) { showToast(t('cart_empty')); return; }
-  const btn = document.querySelector('.cart-footer .btn');
-  btn.textContent = '...';
-  btn.disabled = true;
+  if (cart.length === 0) { showToast('Your bag is empty!'); return; }
+
+  const btn = document.querySelector('.btn-checkout');
+  if (btn) { btn.textContent = 'Loading...'; btn.disabled = true; }
+
   try {
     const res = await fetch('/api/checkout', {
       method: 'POST',
@@ -89,20 +96,23 @@ async function startCheckout() {
       body: JSON.stringify({ cartItems: cart }),
     });
     const data = await res.json();
-    if (data.url) { window.location.href = data.url; }
-    else { throw new Error(data.error); }
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      throw new Error(data.error || 'Unknown error');
+    }
   } catch(err) {
+    console.error('Checkout error:', err);
     showToast('Checkout failed. Please try again.');
-    btn.textContent = t('cart_checkout');
-    btn.disabled = false;
+    if (btn) { btn.textContent = 'Checkout →'; btn.disabled = false; }
   }
 }
 
 function handleNotify() {
-  const email = document.getElementById('notifyEmail').value;
-  if (!email || !email.includes('@')) { showToast(t('notify_error')); return; }
-  showToast(t('notify_success'));
-  document.getElementById('notifyEmail').value = '';
+  const email = document.getElementById('notifyEmail');
+  if (!email || !email.value.includes('@')) { showToast('Please enter a valid email.'); return; }
+  showToast("You're on the list! 🎉");
+  email.value = '';
 }
 
 loadCart();

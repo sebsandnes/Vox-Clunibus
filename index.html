@@ -1,190 +1,150 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Voxclunibus — Funny, bold, a little weird. T-shirts printed on demand and shipped to your door." />
-  <title>Voxclunibus — Wear the Joke</title>
+  <title>Voxclunibus — Coming Soon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Mulish:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Mulish', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+    }
+    .container { max-width: 520px; }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #fff;
+      margin-bottom: 60px;
+      display: block;
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(36px, 8vw, 72px);
+      font-weight: 700;
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+    .notify-form {
+      display: flex;
+      max-width: 380px;
+      margin: 0 auto 32px;
+    }
+    .notify-form input {
+      flex: 1;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-right: none;
+      color: #fff;
+      font-family: 'Mulish', sans-serif;
+      font-size: 14px;
+      outline: none;
+    }
+    .notify-form input::placeholder { color: rgba(255,255,255,0.3); }
+    .notify-form input:focus { border-color: rgba(255,255,255,0.4); }
+    .notify-form button {
+      padding: 14px 24px;
+      background: #fff;
+      color: #111;
+      border: none;
+      font-family: 'Mulish', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .notify-form button:hover { opacity: 0.85; }
+    .social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    .social a {
+      color: rgba(255,255,255,0.4);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .social a:hover { color: #fff; }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: #fff;
+      color: #111;
+      padding: 11px 24px;
+      font-size: 13px;
+      opacity: 0;
+      transition: all 0.25s;
+      pointer-events: none;
+      font-family: 'Mulish', sans-serif;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <span class="logo">VOXCLUNIBUS</span>
+    <h1>Something<br>good is<br>coming.</h1>
+    <p>Bold, funny, a little too real. T-shirts for people who shouldn't be trusted in formal settings. Launching very soon.</p>
 
-  <!-- HEADER -->
-  <header id="header">
-    <a href="/" class="logo">VOXCLUNIBUS</a>
-    <nav>
-      <a href="#shop">Shop</a>
-      <a href="#about">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="faq.html">FAQ</a>
-    </nav>
-    <div class="header-right">
-      <button class="cart-btn" onclick="openCart()">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        <span class="cart-count" id="cartCount">0</span>
-      </button>
+    <div class="notify-form">
+      <input type="email" id="notifyEmail" placeholder="your@email.com" />
+      <button onclick="handleNotify()">Notify me</button>
     </div>
-  </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <p class="hero-tag">Free shipping over $60 · Printed on demand</p>
-      <h1>Wear the joke.<br>Ship it to your door.</h1>
-      <p class="hero-sub">Bold, funny, a little too real. T-shirts for people who shouldn't be trusted in formal settings.</p>
-      <a href="#shop" class="btn">Shop now</a>
-    </div>
-    <div class="hero-badges">
-      <div class="badge">🖨️ <span>Printed on demand</span></div>
-      <div class="badge">📦 <span>Ships in 3–7 days</span></div>
-      <div class="badge">↩️ <span>14-day returns</span></div>
-      <div class="badge">💳 <span>Secure checkout</span></div>
-    </div>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee-bar">
-    <div class="marquee-track">
-      <span>FREE SHIPPING OVER $60</span><span>·</span>
-      <span>PRINTED ON DEMAND</span><span>·</span>
-      <span>SHIPS IN 3–7 DAYS</span><span>·</span>
-      <span>100% COTTON</span><span>·</span>
-      <span>14-DAY RETURNS</span><span>·</span>
-      <span>FREE SHIPPING OVER $60</span><span>·</span>
-      <span>PRINTED ON DEMAND</span><span>·</span>
-      <span>SHIPS IN 3–7 DAYS</span><span>·</span>
-      <span>100% COTTON</span><span>·</span>
-      <span>14-DAY RETURNS</span><span>·</span>
+    <div class="social">
+      <a href="https://www.instagram.com/voxclunibus" target="_blank">Instagram</a>
+      <span style="color:rgba(255,255,255,0.2)">·</span>
+      <a href="https://www.tiktok.com/@voxclunibus" target="_blank">TikTok</a>
     </div>
   </div>
 
-  <!-- SHOP -->
-  <section id="shop" class="shop-section">
-    <div class="section-header">
-      <h2>Fresh Drops</h2>
-    </div>
-    <div class="products-grid" id="productsGrid"></div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="about-section">
-    <div class="about-grid">
-      <div class="about-text">
-        <h2>No warehouse.<br>No BS.</h2>
-        <p>We make shirts for people who are done pretending. Done pretending to enjoy Mondays. Done pretending the recliner isn't their happy place. Done pretending they don't support ADHD.</p>
-        <p>Every shirt is printed when you order — no overstock, no waste. Gildan 64000 — 100% ring-spun cotton, pre-shrunk, built to outlast your will to be professional.</p>
-        <a href="faq.html" class="btn-outline">Read the FAQ</a>
-      </div>
-      <div class="about-steps">
-        <div class="step">
-          <span class="step-num">01</span>
-          <div>
-            <strong>You order</strong>
-            <p>Pick your shirt, size, and pay securely via Stripe.</p>
-          </div>
-        </div>
-        <div class="step">
-          <span class="step-num">02</span>
-          <div>
-            <strong>We print</strong>
-            <p>Your order goes to print within 24–48 hours.</p>
-          </div>
-        </div>
-        <div class="step">
-          <span class="step-num">03</span>
-          <div>
-            <strong>You receive</strong>
-            <p>Delivered to your door in 5–10 business days.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NOTIFY -->
-  <section class="notify-section">
-    <div class="notify-inner">
-      <h3>New drops. No spam.</h3>
-      <p>Get notified when we launch new designs. That's it.</p>
-      <div class="notify-form">
-        <input type="email" id="notifyEmail" placeholder="your@email.com" />
-        <button onclick="handleNotify()">Notify me</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- CART DRAWER -->
-  <div class="overlay" id="overlay" onclick="closeCart()"></div>
-  <aside class="cart" id="cart">
-    <div class="cart-header">
-      <h3>Your bag</h3>
-      <button onclick="closeCart()" class="close-btn">✕</button>
-    </div>
-    <div class="cart-items" id="cartItems">
-      <p class="cart-empty">Your bag is empty.</p>
-    </div>
-    <div class="cart-footer">
-      <div class="cart-note">Shipping calculated at checkout</div>
-      <div class="cart-total">
-        <span>Total</span>
-        <span id="cartTotal">$0.00</span>
-      </div>
-      <button class="btn-checkout" onclick="startCheckout()">Checkout →</button>
-      <p class="cart-secure">🔒 Secure checkout via Stripe</p>
-    </div>
-  </aside>
-
-  <!-- TOAST -->
   <div class="toast" id="toast"></div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="logo">VOXCLUNIBUS</span>
-        <p>Wear the joke.</p>
-        <div class="footer-social">
-          <a href="https://www.tiktok.com/@voxclunibus" target="_blank" aria-label="TikTok">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/voxclunibus" target="_blank" aria-label="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer-links-group">
-        <h4>Shop</h4>
-        <a href="#shop">All products</a>
-        <a href="faq.html#sizing">Size guide</a>
-      </div>
-      <div class="footer-links-group">
-        <h4>Help</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="returns.html">Returns</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-links-group">
-        <h4>Company</h4>
-        <a href="about.html">About us</a>
-        <a href="mailto:support@voxclunibus.com">support@voxclunibus.com</a>
-      </div>
-      <div class="footer-links-group">
-        <h4>Legal</h4>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Voxclunibus. All rights reserved. Printed on demand by Printful.</p>
-    </div>
-  </footer>
-
-  <script src="cart.js"></script>
-  <script src="products.js"></script>
-  <script src="main.js"></script>
-  <script src="cookie-banner.js"></script>
+  <script>
+    function handleNotify() {
+      const email = document.getElementById('notifyEmail').value;
+      if (!email || !email.includes('@')) {
+        showToast('Please enter a valid email.');
+        return;
+      }
+      showToast("You're on the list!");
+      document.getElementById('notifyEmail').value = '';
+    }
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+  </script>
 </body>
 </html>

@@ -115,7 +115,7 @@ const PRODUCTS = [
     price: 19.99,
     originalPrice: 29.99,
     emoji: "💩",
-    image: "images/unisex-basic-softstyle-t-shirt-black-front-6a018eadd8235.png",
+    image: "images/unisex-basic-softstyle-t-shirt-black-front-6a018ed977728.png",
     images: [
       "images/unisex-basic-softstyle-t-shirt-black-front-6a018ed977728.png",
       "images/unisex-basic-softstyle-t-shirt-black-front-6a018eadd8235.png",

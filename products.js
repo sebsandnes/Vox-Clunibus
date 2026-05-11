@@ -117,10 +117,10 @@ const PRODUCTS = [
     emoji: "💩",
     image: "images/unisex-basic-softstyle-t-shirt-black-front-6a018eadd8235.png",
     images: [
+      "images/unisex-basic-softstyle-t-shirt-black-front-6a018ed977728.png",
       "images/unisex-basic-softstyle-t-shirt-black-front-6a018eadd8235.png",
       "images/unisex-basic-softstyle-t-shirt-black-left-front-6a018eadd856b.png",
-      "images/unisex-basic-softstyle-t-shirt-black-front-and-back-6a018eadd878c.png",
-      "images/unisex-basic-softstyle-t-shirt-black-front-6a018ed977728.png"
+      "images/unisex-basic-softstyle-t-shirt-black-front-and-back-6a018eadd878c.png"
     ],
     description: "Not a phase. Not a bad week. A lifestyle. Professionally, chronically, spiritually — always on some bullshit.",
     variants: {

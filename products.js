@@ -110,6 +110,28 @@ const PRODUCTS = [
     defaultColor: "Black", availableColors: ["Black"]
   },
   {
+    id: "prod_007",
+    name: "Always on Some Bullshit",
+    price: 19.99,
+    originalPrice: 29.99,
+    emoji: "💩",
+    image: "images/unisex-basic-softstyle-t-shirt-black-front-6a018eadd8235.png",
+    images: [
+      "images/unisex-basic-softstyle-t-shirt-black-front-6a018eadd8235.png",
+      "images/unisex-basic-softstyle-t-shirt-black-left-front-6a018eadd856b.png",
+      "images/unisex-basic-softstyle-t-shirt-black-front-and-back-6a018eadd878c.png",
+      "images/unisex-basic-softstyle-t-shirt-black-front-6a018ed977728.png"
+    ],
+    description: "Not a phase. Not a bad week. A lifestyle. Professionally, chronically, spiritually — always on some bullshit.",
+    variants: {
+      Black: {
+        S: "6a018dfe853c74", M: "6a018dfe853cd1", L: "6a018dfe853d27",
+        XL: "6a018dfe853d77", "2XL": "6a018dfe853db2", "3XL": "6a018dfe853e02"
+      }
+    },
+    defaultColor: "Black", availableColors: ["Black"]
+  },
+  {
     id: "prod_006",
     name: "AI Took My Job",
     price: 19.99,

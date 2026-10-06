@@ -1,0 +1,39 @@
+<section class="section image-with-text{% if section.settings.image_right %} image-with-text--reverse{% endif %}">
+  <div class="page-width image-with-text__grid">
+    <div class="image-with-text__media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1400 | image_tag:
+          loading: 'lazy',
+          widths: '600, 900, 1200, 1400',
+          sizes: '(min-width: 990px) 50vw, 100vw'
+        }}
+      {%- else -%}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder' }}
+      {%- endif -%}
+    </div>
+    <div class="image-with-text__text">
+      <h2 class="display">{{ section.settings.heading }}</h2>
+      <div class="rte">{{ section.settings.text }}</div>
+      {% render 'footnote', text: section.settings.footnote %}
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link }}" class="button button--secondary">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image with text",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "checkbox", "id": "image_right", "label": "Image on the right", "default": false },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Trykkes når du bestiller" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Vi har ikke lager. Hvert plagg trykkes først når noen bestiller det, så ingenting blir kastet.</p>" },
+    { "type": "text", "id": "footnote", "label": "Footnote", "default": "Dette er den eneste gangen vi er seriøse." },
+    { "type": "text", "id": "button_label", "label": "Button label" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "Image with text" }]
+}
+{% endschema %}

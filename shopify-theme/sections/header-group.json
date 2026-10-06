@@ -1,0 +1,15 @@
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "settings": { "text": "Gratis frakt fra 2 plagg" }
+    },
+    "header": {
+      "type": "header",
+      "settings": { "menu": "main-menu" }
+    }
+  },
+  "order": ["announcement", "header"]
+}

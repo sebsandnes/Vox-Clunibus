@@ -1,0 +1,83 @@
+{
+  "accessibility": {
+    "skip_to_content": "Skip to content"
+  },
+  "general": {
+    "close": "Close",
+    "menu": "Menu",
+    "next": "Next",
+    "previous": "Previous",
+    "page": "Page {{ page }}",
+    "page_of": "Page {{ page }} of {{ pages }}",
+    "pagination": "Pagination",
+    "search": "Search"
+  },
+  "cart": {
+    "title": "Cart",
+    "checkout": "Checkout",
+    "continue": "Keep shopping",
+    "decrease": "Decrease quantity for {{ title }}",
+    "increase": "Increase quantity for {{ title }}",
+    "empty": "Your cart is empty.",
+    "empty_footnote": "Just like our promises.",
+    "error": "Something went wrong. Please try again.",
+    "free_shipping_reached": "You get free shipping.",
+    "free_shipping_remaining": "{{ amount }} away from free shipping",
+    "quantity": "Quantity",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "taxes_and_shipping": "Shipping calculated at checkout.",
+    "update": "Update cart",
+    "view_cart": "View cart"
+  },
+  "collections": {
+    "all_title": "Collections",
+    "empty": "Nothing here yet.",
+    "product_count": {
+      "one": "{{ count }} product",
+      "other": "{{ count }} products"
+    },
+    "sort_by": "Sort by"
+  },
+  "footer": {
+    "country": "Country",
+    "language": "Language",
+    "payment_methods": "Payment methods",
+    "policies": "Policies",
+    "update": "Update"
+  },
+  "newsletter": {
+    "email": "Email",
+    "notify": "Notify me",
+    "subscribe": "Sign up",
+    "success": "Thanks. You are on the list."
+  },
+  "not_found": {
+    "footnote": "This page does not exist. Neither does our sense of direction."
+  },
+  "password": {
+    "enter": "Enter",
+    "error": "Wrong password.",
+    "owner_login": "Store owner? Log in",
+    "password": "Password"
+  },
+  "products": {
+    "add_to_cart": "Add to cart",
+    "from_price": "From {{ price }}",
+    "placeholder_title": "Product name",
+    "show_image": "Show image {{ number }}",
+    "sold_out": "Sold out",
+    "unavailable": "Unavailable",
+    "view_all": "View all"
+  },
+  "search": {
+    "no_results_footnote": "Nothing found. We looked everywhere. Almost.",
+    "placeholder": "Search",
+    "results_count": {
+      "one": "{{ count }} result for “{{ terms }}”",
+      "other": "{{ count }} results for “{{ terms }}”"
+    },
+    "submit": "Search",
+    "title": "Search"
+  }
+}

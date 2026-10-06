@@ -1,0 +1,83 @@
+{
+  "accessibility": {
+    "skip_to_content": "Hopp til innhold"
+  },
+  "general": {
+    "close": "Lukk",
+    "menu": "Meny",
+    "next": "Neste",
+    "previous": "Forrige",
+    "page": "Side {{ page }}",
+    "page_of": "Side {{ page }} av {{ pages }}",
+    "pagination": "Sider",
+    "search": "Søk"
+  },
+  "cart": {
+    "title": "Handlekurv",
+    "checkout": "Til kassen",
+    "continue": "Fortsett å handle",
+    "decrease": "Færre av {{ title }}",
+    "increase": "Flere av {{ title }}",
+    "empty": "Handlekurven er tom.",
+    "empty_footnote": "Akkurat som løftene våre.",
+    "error": "Noe gikk galt. Prøv igjen.",
+    "free_shipping_reached": "Du får gratis frakt.",
+    "free_shipping_remaining": "{{ amount }} igjen til gratis frakt",
+    "quantity": "Antall",
+    "remove": "Fjern",
+    "subtotal": "Sum",
+    "taxes_and_shipping": "Frakt beregnes i kassen.",
+    "update": "Oppdater handlekurv",
+    "view_cart": "Se handlekurv"
+  },
+  "collections": {
+    "all_title": "Kolleksjoner",
+    "empty": "Ingenting her ennå.",
+    "product_count": {
+      "one": "{{ count }} produkt",
+      "other": "{{ count }} produkter"
+    },
+    "sort_by": "Sorter etter"
+  },
+  "footer": {
+    "country": "Land",
+    "language": "Språk",
+    "payment_methods": "Betalingsmåter",
+    "policies": "Vilkår",
+    "update": "Oppdater"
+  },
+  "newsletter": {
+    "email": "Epost",
+    "notify": "Si fra",
+    "subscribe": "Meld meg på",
+    "success": "Takk. Du står på listen."
+  },
+  "not_found": {
+    "footnote": "Siden finnes ikke. Det gjør heller ikke stedsansen vår."
+  },
+  "password": {
+    "enter": "Gå inn",
+    "error": "Feil passord.",
+    "owner_login": "Eier av butikken? Logg inn",
+    "password": "Passord"
+  },
+  "products": {
+    "add_to_cart": "Legg i handlekurv",
+    "from_price": "Fra {{ price }}",
+    "placeholder_title": "Produktnavn",
+    "show_image": "Vis bilde {{ number }}",
+    "sold_out": "Utsolgt",
+    "unavailable": "Ikke tilgjengelig",
+    "view_all": "Se alle"
+  },
+  "search": {
+    "no_results_footnote": "Fant ingenting. Vi lette overalt. Nesten.",
+    "placeholder": "Søk",
+    "results_count": {
+      "one": "{{ count }} treff på «{{ terms }}»",
+      "other": "{{ count }} treff på «{{ terms }}»"
+    },
+    "submit": "Søk",
+    "title": "Søk"
+  }
+}

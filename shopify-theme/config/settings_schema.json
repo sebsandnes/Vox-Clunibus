@@ -1,0 +1,53 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Voxclunibus",
+    "theme_version": "1.0.0",
+    "theme_author": "Voxclunibus",
+    "theme_documentation_url": "https://github.com/sebsandnes/Vox-Clunibus",
+    "theme_support_url": "https://github.com/sebsandnes/Vox-Clunibus"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      { "type": "color", "id": "color_background", "label": "Background (Bone)", "default": "#EDE8DF" },
+      { "type": "color", "id": "color_text", "label": "Text (Ink)", "default": "#141414" },
+      { "type": "color", "id": "color_accent", "label": "Accent (Signal)", "default": "#FF4F1F", "info": "Used for the asterisk, hover states and the shipping bar. Keep it to small areas." },
+      { "type": "color", "id": "color_surface", "label": "Image background", "default": "#E2DCD0" }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      { "type": "range", "id": "page_width", "label": "Page width", "min": 1000, "max": 1600, "step": 50, "unit": "px", "default": 1400 }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Cart type",
+        "options": [
+          { "value": "drawer", "label": "Drawer" },
+          { "value": "page", "label": "Page" }
+        ],
+        "default": "drawer"
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping from (store currency)",
+        "info": "Must match the free shipping rule in Settings > Shipping and delivery. Set to 0 to hide the progress bar.",
+        "default": 798
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      { "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "Use brand/logo/icon-1024.png" }
+    ]
+  }
+]

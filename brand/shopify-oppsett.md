@@ -26,12 +26,12 @@ Den gamle butikken på Vercel har to feil som kan koste deg penger mens du bygge
 
 ## 3. Tema og utseende
 
-1. Bruk gratistemaet **Dawn** (eller et annet gratistema fra Shopify). Ikke kjøp tema før du har salg.
-2. **Theme settings → Colors:** bakgrunn `#EDE8DF`, tekst `#141414`, knapper `#FF4F1F` med tekst `#141414`.
-3. **Typography:** velg den smaleste og tyngste skriften i Shopifys bibliotek til overskrifter, og en mono eller enkel sans til brødtekst. Finnes ikke Anton i listen, kan den legges inn med litt CSS. Det kan jeg gjøre for deg.
-4. **Logo:** `brand/logo/wordmark-ink.png`. **Favicon:** `brand/logo/icon-1024.png`.
-5. Forsiden: ett stort bilde av en ekte person i en skjorte, én setning, én knapp. Ikke 12 bannere.
-6. **Om oss:** start med navnet. «Voxclunibus er latin for å snakke fra rumpa. Omtrent. Vi lager skjorter med fotnoter.»
+Butikken har sitt eget tema, laget etter merkevareguiden. Det ligger i `shopify-theme/`.
+
+1. **Online Store → Themes → Add theme → Upload zip file:** last opp `shopify-theme/dist/voxclunibus-theme.zip` og trykk **Publish**.
+2. Følg de fem stegene i `shopify-theme/README.md`: fotnotefeltet på produktene, menyer, temaeditoren, løftene på forsiden og passordsiden.
+3. Forsiden: last opp ett bilde av en ekte person i en skjorte. Mockups selger dårligere.
+4. **Om oss:** start med navnet. «Voxclunibus er latin for å snakke fra rumpa. Omtrent. Vi lager klær med fotnoter.»
 
 ## 4. Betaling
 
@@ -94,6 +94,6 @@ Resultat: vanlige ordre går helt automatisk. Store ordre og ordre som Shopify m
 ## Hva du fortsatt kan bruke meg til
 
 * Nye linjer og trykkfiler (`brand/tools/designs.json`)
-* CSS i temaet hvis editoren ikke strekker til, for eksempel Anton som overskriftskrift
+* Endringer i temaet (`shopify-theme/`) når temaeditoren ikke strekker til
 * Shopify Flow regler, produkttekster, epost og annonsetekster
 * Gå gjennom salgs og annonsetall og si hva som bør kuttes

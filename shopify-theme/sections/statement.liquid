@@ -1,0 +1,28 @@
+<section class="statement scheme-{{ section.settings.scheme }}">
+  <div class="page-width">
+    <p class="statement__text display">{{ section.settings.statement }}{% render 'asterisk' %}</p>
+    <hr class="rule">
+    {% render 'footnote', text: section.settings.footnote %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Statement",
+  "settings": [
+    { "type": "text", "id": "statement", "label": "Statement", "default": "Voxclunibus" },
+    { "type": "text", "id": "footnote", "label": "Footnote", "default": "Latin for å snakke fra rumpa. Omtrent." },
+    {
+      "type": "select",
+      "id": "scheme",
+      "label": "Colors",
+      "options": [
+        { "value": "light", "label": "Light" },
+        { "value": "dark", "label": "Dark" }
+      ],
+      "default": "dark"
+    }
+  ],
+  "presets": [{ "name": "Statement" }]
+}
+{% endschema %}

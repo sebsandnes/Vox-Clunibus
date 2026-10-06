@@ -1,0 +1,90 @@
+<footer class="site-footer">
+  <div class="page-width site-footer__grid">
+    <div class="site-footer__brand">
+      <p class="wordmark wordmark--small">{{ shop.name | upcase }}{% render 'asterisk' %}</p>
+      {% render 'footnote', text: section.settings.footnote %}
+      {%- if section.settings.instagram != blank or section.settings.tiktok != blank -%}
+        <ul class="social-links">
+          {%- if section.settings.instagram != blank -%}<li><a href="{{ section.settings.instagram }}" target="_blank" rel="noopener">Instagram</a></li>{%- endif -%}
+          {%- if section.settings.tiktok != blank -%}<li><a href="{{ section.settings.tiktok }}" target="_blank" rel="noopener">TikTok</a></li>{%- endif -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.menu.links.size > 0 -%}
+      <nav aria-label="{{ section.settings.menu.title | escape }}">
+        <ul class="footer-menu">
+          {%- for link in section.settings.menu.links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+
+    <nav aria-label="{{ 'footer.policies' | t }}">
+      <ul class="footer-menu">
+        {%- for policy in shop.policies -%}
+          <li><a href="{{ policy.url }}">{{ policy.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  </div>
+
+  <div class="page-width site-footer__bottom">
+    {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
+      {%- form 'localization', class: 'localization-form' -%}
+        {%- if localization.available_countries.size > 1 -%}
+          <label>
+            <span class="visually-hidden">{{ 'footer.country' | t }}</span>
+            <select name="country_code" data-autosubmit>
+              {%- for country in localization.available_countries -%}
+                <option value="{{ country.iso_code }}"{% if country.iso_code == localization.country.iso_code %} selected{% endif %}>
+                  {{ country.name }} ({{ country.currency.iso_code }})
+                </option>
+              {%- endfor -%}
+            </select>
+          </label>
+        {%- endif -%}
+        {%- if localization.available_languages.size > 1 -%}
+          <label>
+            <span class="visually-hidden">{{ 'footer.language' | t }}</span>
+            <select name="language_code" data-autosubmit>
+              {%- for language in localization.available_languages -%}
+                <option value="{{ language.iso_code }}"{% if language.iso_code == localization.language.iso_code %} selected{% endif %}>
+                  {{ language.endonym_name | capitalize }}
+                </option>
+              {%- endfor -%}
+            </select>
+          </label>
+        {%- endif -%}
+        <noscript><button type="submit" class="button button--small">{{ 'footer.update' | t }}</button></noscript>
+      {%- endform -%}
+    {%- endif -%}
+
+    <ul class="payment-icons" aria-label="{{ 'footer.payment_methods' | t }}">
+      {%- for type in shop.enabled_payment_types -%}
+        <li>{{ type | payment_type_svg_tag }}</li>
+      {%- endfor -%}
+    </ul>
+
+    <p class="site-footer__copy">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "enabled_on": { "groups": ["footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "footnote",
+      "label": "Footnote",
+      "default": "Latin for å snakke fra rumpa. Omtrent."
+    },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" },
+    { "type": "url", "id": "instagram", "label": "Instagram link" },
+    { "type": "url", "id": "tiktok", "label": "TikTok link" }
+  ]
+}
+{% endschema %}

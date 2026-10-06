@@ -1,0 +1,12 @@
+<section class="section page-width page-content">
+  <div class="section-heading section-heading--page">
+    <h1 class="display">{{ page.title }}{% render 'asterisk' %}</h1>
+  </div>
+  <div class="rte rte--narrow">{{ page.content }}</div>
+</section>
+
+{% schema %}
+{
+  "name": "Page"
+}
+{% endschema %}

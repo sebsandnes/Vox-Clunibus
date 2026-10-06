@@ -1,0 +1,7 @@
+{%- comment -%}
+  A brand footnote line: orange asterisk followed by text.
+  Usage: {% render 'footnote', text: 'Det ordnet seg ikke.' %}
+{%- endcomment -%}
+{%- if text != blank -%}
+  <p class="footnote">{% render 'asterisk' %}<span>{{ text }}</span></p>
+{%- endif -%}

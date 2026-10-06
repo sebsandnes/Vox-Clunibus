@@ -1,0 +1,90 @@
+<header class="site-header">
+  <div class="site-header__inner page-width">
+    {%- if section.settings.menu.links.size > 0 -%}
+      <details class="mobile-menu">
+        <summary class="icon-button" aria-label="{{ 'general.menu' | t }}">
+          <span class="burger" aria-hidden="true"></span>
+        </summary>
+        <nav class="mobile-menu__panel" aria-label="{{ 'general.menu' | t }}">
+          <ul>
+            {%- for link in section.settings.menu.links -%}
+              <li><a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
+              {%- for child in link.links -%}
+                <li class="mobile-menu__child"><a href="{{ child.url }}">{{ child.title }}</a></li>
+              {%- endfor -%}
+            {%- endfor -%}
+          </ul>
+        </nav>
+      </details>
+    {%- endif -%}
+
+    <a href="{{ routes.root_url }}" class="site-logo">
+      {%- if section.settings.logo != blank -%}
+        {%- assign logo_alt = section.settings.logo.alt | default: shop.name -%}
+        {%- capture logo_style %}max-width: {{ section.settings.logo_width }}px{% endcapture -%}
+        {{ section.settings.logo | image_url: width: 600 | image_tag:
+          class: 'site-logo__image',
+          widths: '200, 300, 400, 600',
+          sizes: '240px',
+          style: logo_style,
+          alt: logo_alt
+        }}
+      {%- else -%}
+        <span class="wordmark">{{ shop.name | upcase }}{% render 'asterisk' %}</span>
+      {%- endif -%}
+    </a>
+
+    {%- if section.settings.menu.links.size > 0 -%}
+      <nav class="site-nav" aria-label="{{ 'general.menu' | t }}">
+        <ul>
+          {%- for link in section.settings.menu.links -%}
+            <li><a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+
+    <div class="site-header__actions">
+      <a href="{{ routes.search_url }}" class="icon-button" aria-label="{{ 'general.search' | t }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      </a>
+      <a href="{{ routes.cart_url }}" class="cart-link" data-cart-open>
+        <svg class="cart-link__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 7h12l1 14H5L6 7z"/><path d="M9 7a3 3 0 016 0"/></svg>
+        <span class="cart-link__label">{{ 'cart.title' | t }}</span>
+        <span class="cart-count" data-cart-count>{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "section-header",
+  "enabled_on": { "groups": ["header"] },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo",
+      "info": "Leave empty to show the shop name as a wordmark with the asterisk."
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "min": 80,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 180
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

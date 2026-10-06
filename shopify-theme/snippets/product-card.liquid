@@ -1,0 +1,37 @@
+{%- comment -%}
+  Product tile used in grids.
+  Usage: {% render 'product-card', product: product %}
+{%- endcomment -%}
+<article class="product-card">
+  <a class="product-card__link" href="{{ product.url }}">
+    <div class="product-card__media">
+      {%- if product.featured_media -%}
+        {%- assign card_alt = product.featured_media.alt | default: product.title -%}
+        {{ product.featured_media | image_url: width: 900 | image_tag:
+          loading: 'lazy',
+          widths: '300, 450, 600, 900',
+          sizes: '(min-width: 990px) 25vw, 50vw',
+          alt: card_alt
+        }}
+        {%- if product.media[1] -%}
+          {{ product.media[1] | image_url: width: 900 | image_tag:
+            loading: 'lazy',
+            widths: '300, 450, 600, 900',
+            sizes: '(min-width: 990px) 25vw, 50vw',
+            class: 'product-card__hover',
+            alt: ''
+          }}
+        {%- endif -%}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+      {%- endif -%}
+      {%- unless product.available -%}
+        <span class="badge">{{ 'products.sold_out' | t }}</span>
+      {%- endunless -%}
+    </div>
+    <h3 class="product-card__title">{{ product.title }}</h3>
+  </a>
+  {%- assign footnote = product.metafields.custom.footnote.value -%}
+  {% render 'footnote', text: footnote %}
+  {% render 'price', product: product %}
+</article>

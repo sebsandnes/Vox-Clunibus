@@ -1,0 +1,64 @@
+<section class="section cart-page page-width">
+  <div class="section-heading section-heading--page">
+    <h1 class="display">{{ 'cart.title' | t }}{% render 'asterisk' %}</h1>
+  </div>
+
+  {%- if cart.item_count > 0 -%}
+    <form action="{{ routes.cart_url }}" method="post" class="cart-page__form">
+      <ul class="cart-items cart-items--page">
+        {%- for item in cart.items -%}
+          <li class="cart-item">
+            <a href="{{ item.url }}" class="cart-item__media">
+              {%- if item.image -%}
+                {{ item.image | image_url: width: 300 | image_tag: loading: 'lazy', alt: item.product.title }}
+              {%- endif -%}
+            </a>
+            <div class="cart-item__info">
+              <a href="{{ item.url }}" class="cart-item__title">{{ item.product.title }}</a>
+              {%- unless item.product.has_only_default_variant -%}
+                <p class="cart-item__variant">{{ item.variant.title }}</p>
+              {%- endunless -%}
+              <label class="cart-item__qty">
+                <span class="visually-hidden">{{ 'cart.quantity' | t }}</span>
+                <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" inputmode="numeric">
+              </label>
+            </div>
+            <div class="cart-item__end">
+              <span class="cart-item__price">{{ item.final_line_price | money }}</span>
+              <a href="{{ item.url_to_remove }}" class="link-button">{{ 'cart.remove' | t }}</a>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      <div class="cart-page__summary">
+        <p class="cart-total">
+          <span>{{ 'cart.subtotal' | t }}</span>
+          <span>{{ cart.total_price | money_with_currency }}</span>
+        </p>
+        <p class="cart-note">{{ 'cart.taxes_and_shipping' | t }}</p>
+        <button type="submit" name="update" class="button button--secondary button--full">{{ 'cart.update' | t }}</button>
+        <button type="submit" name="checkout" class="button button--full">{{ 'cart.checkout' | t }}</button>
+        {%- if additional_checkout_buttons and section.settings.show_express -%}
+          <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+        {%- endif -%}
+      </div>
+    </form>
+  {%- else -%}
+    <div class="cart-empty">
+      <p class="cart-empty__title">{{ 'cart.empty' | t }}</p>
+      {%- assign empty_footnote = 'cart.empty_footnote' | t -%}
+      {% render 'footnote', text: empty_footnote %}
+      <a href="{{ routes.all_products_collection_url }}" class="button">{{ 'cart.continue' | t }}</a>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": [
+    { "type": "checkbox", "id": "show_express", "label": "Show express checkout buttons", "default": true }
+  ]
+}
+{% endschema %}

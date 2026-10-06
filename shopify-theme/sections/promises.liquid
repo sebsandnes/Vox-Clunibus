@@ -1,0 +1,38 @@
+<section class="promises">
+  <ul class="page-width promises__list">
+    {%- for block in section.blocks -%}
+      <li {{ block.shopify_attributes }}>
+        <strong>{{ block.settings.title }}</strong>
+        <span>{{ block.settings.text }}</span>
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>
+
+{% schema %}
+{
+  "name": "Promises",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "promise",
+      "name": "Promise",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Trykkes på bestilling" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Ingenting på lager, ingenting kastes" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promises",
+      "blocks": [
+        { "type": "promise", "settings": { "title": "Trykkes på bestilling", "text": "Ingenting på lager, ingenting kastes" } },
+        { "type": "promise", "settings": { "title": "Gratis frakt", "text": "Fra 2 plagg" } },
+        { "type": "promise", "settings": { "title": "14 dagers angrerett", "text": "Som loven sier" } },
+        { "type": "promise", "settings": { "title": "Vipps og Klarna", "text": "Betal som du vil" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,11 @@
+{
+  "current": {
+    "color_background": "#EDE8DF",
+    "color_text": "#141414",
+    "color_accent": "#FF4F1F",
+    "color_surface": "#E2DCD0",
+    "page_width": 1400,
+    "cart_type": "drawer",
+    "free_shipping_threshold": 798
+  }
+}

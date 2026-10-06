@@ -1,0 +1,56 @@
+{%- assign collection = section.settings.collection | default: collections.all -%}
+<section class="section featured-collection">
+  <div class="page-width">
+    <div class="section-heading">
+      <h2 class="display">{{ section.settings.heading }}</h2>
+      {% render 'footnote', text: section.settings.footnote %}
+    </div>
+
+    <div class="product-grid product-grid--{{ section.settings.columns }}">
+      {%- if collection != blank and collection.products_count > 0 -%}
+        {%- assign shown = 0 -%}
+        {%- for item in collection.products -%}
+          {%- if product and item.id == product.id -%}{%- continue -%}{%- endif -%}
+          {%- if shown >= section.settings.limit -%}{%- break -%}{%- endif -%}
+          {% render 'product-card', product: item %}
+          {%- assign shown = shown | plus: 1 -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <article class="product-card">
+            <div class="product-card__media">{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}</div>
+            <h3 class="product-card__title">{{ 'products.placeholder_title' | t }}</h3>
+          </article>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- if collection.products_count > 0 and section.settings.show_view_all -%}
+      <p class="section-cta"><a href="{{ collection.url }}" class="button button--secondary">{{ 'products.view_all' | t }}</a></p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Bestselgere" },
+    { "type": "text", "id": "footnote", "label": "Footnote", "default": "Basert på hva folk kjøper, ikke hva vi synes er morsomst." },
+    { "type": "collection", "id": "collection", "label": "Collection", "info": "Leave empty to show all products." },
+    { "type": "range", "id": "limit", "label": "Products to show", "min": 2, "max": 24, "step": 1, "default": 8 },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns on desktop",
+      "options": [
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "4"
+    },
+    { "type": "checkbox", "id": "show_view_all", "label": "Show 'view all' button", "default": true }
+  ],
+  "presets": [{ "name": "Featured collection" }]
+}
+{% endschema %}

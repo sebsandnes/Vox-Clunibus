@@ -1,0 +1,13 @@
+<section class="section page-width not-found">
+  <p class="not-found__code display">404{% render 'asterisk' %}</p>
+  <hr class="rule">
+  {%- assign not_found_footnote = 'not_found.footnote' | t -%}
+  {% render 'footnote', text: not_found_footnote %}
+  <a href="{{ routes.all_products_collection_url }}" class="button">{{ 'cart.continue' | t }}</a>
+</section>
+
+{% schema %}
+{
+  "name": "404"
+}
+{% endschema %}

@@ -1,0 +1,9 @@
+<nav class="pagination" aria-label="{{ 'general.pagination' | t }}">
+  {%- if paginate.previous -%}
+    <a href="{{ paginate.previous.url }}" class="button button--secondary button--small">{{ 'general.previous' | t }}</a>
+  {%- endif -%}
+  <span>{{ 'general.page_of' | t: page: paginate.current_page, pages: paginate.pages }}</span>
+  {%- if paginate.next -%}
+    <a href="{{ paginate.next.url }}" class="button button--secondary button--small">{{ 'general.next' | t }}</a>
+  {%- endif -%}
+</nav>

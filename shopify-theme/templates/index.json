@@ -1,0 +1,72 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "promises": {
+      "type": "promises",
+      "blocks": {
+        "p1": {
+          "type": "promise",
+          "settings": {
+            "title": "Trykkes på bestilling",
+            "text": "Ingenting på lager, ingenting kastes"
+          }
+        },
+        "p2": {
+          "type": "promise",
+          "settings": {
+            "title": "Gratis frakt",
+            "text": "Fra 2 plagg"
+          }
+        },
+        "p3": {
+          "type": "promise",
+          "settings": {
+            "title": "14 dagers angrerett",
+            "text": "Som loven sier"
+          }
+        },
+        "p4": {
+          "type": "promise",
+          "settings": {
+            "title": "Vipps og Klarna",
+            "text": "Betal som du vil"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ],
+      "settings": {}
+    },
+    "featured": {
+      "type": "featured-collection",
+      "settings": {}
+    },
+    "statement": {
+      "type": "statement",
+      "settings": {}
+    },
+    "story": {
+      "type": "image-with-text",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "promises",
+    "featured",
+    "statement",
+    "story",
+    "newsletter"
+  ]
+}

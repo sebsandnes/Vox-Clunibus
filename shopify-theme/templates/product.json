@@ -1,0 +1,64 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "footnote": {
+          "type": "footnote",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variants": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "buy": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "shipping": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Frakt og retur",
+            "content": "<p>Trykkes når du bestiller. Du får sporingslenke på epost når pakken er sendt. 14 dagers angrerett.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "footnote",
+        "price",
+        "variants",
+        "buy",
+        "description",
+        "shipping"
+      ],
+      "settings": {}
+    },
+    "related": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "Flere fotnoter",
+        "footnote": "Fordi én sjelden er nok.",
+        "limit": 4
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related"
+  ]
+}

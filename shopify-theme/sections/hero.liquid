@@ -1,0 +1,50 @@
+<section class="hero scheme-{{ section.settings.scheme }}{% if section.settings.image != blank %} hero--with-image{% endif %}">
+  <div class="page-width hero__inner">
+    <div class="hero__text">
+      {%- if section.settings.kicker != blank -%}
+        <p class="kicker">{{ section.settings.kicker }}</p>
+      {%- endif -%}
+      <h1 class="hero__heading display">{{ section.settings.heading }}{% render 'asterisk' %}</h1>
+      <hr class="rule">
+      {% render 'footnote', text: section.settings.footnote %}
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="button">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.image != blank -%}
+      <div class="hero__media">
+        {{ section.settings.image | image_url: width: 1600 | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          widths: '600, 900, 1200, 1600',
+          sizes: '(min-width: 990px) 50vw, 100vw'
+        }}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image", "info": "A real person wearing a shirt works best." },
+    { "type": "text", "id": "kicker", "label": "Small text above heading", "default": "Kolleksjon 01" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Klær med fotnoter" },
+    { "type": "text", "id": "footnote", "label": "Footnote", "default": "Vi står for det store. Ikke for det med liten skrift." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Se kolleksjonen" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    {
+      "type": "select",
+      "id": "scheme",
+      "label": "Colors",
+      "options": [
+        { "value": "light", "label": "Light" },
+        { "value": "dark", "label": "Dark" }
+      ],
+      "default": "light"
+    }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

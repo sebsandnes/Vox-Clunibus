@@ -1,0 +1,18 @@
+<article class="section page-width page-content">
+  <div class="section-heading section-heading--page">
+    <p class="kicker">{{ article.published_at | time_tag: format: 'date' }}</p>
+    <h1 class="display">{{ article.title }}{% render 'asterisk' %}</h1>
+  </div>
+  {%- if article.image -%}
+    <div class="article__image">
+      {{ article.image | image_url: width: 1600 | image_tag: widths: '600, 1000, 1600', sizes: '100vw', alt: article.title }}
+    </div>
+  {%- endif -%}
+  <div class="rte rte--narrow">{{ article.content }}</div>
+</article>
+
+{% schema %}
+{
+  "name": "Article"
+}
+{% endschema %}

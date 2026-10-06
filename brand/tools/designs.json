@@ -1,0 +1,14 @@
+[
+  { "slug": "det-ordner-seg",     "lang": "no", "lines": ["DET ORDNER", "SEG"],              "footnote": "Det ordnet seg ikke." },
+  { "slug": "takk-for-sist",      "lang": "no", "lines": ["TAKK", "FOR SIST"],               "footnote": "Jeg husker ingenting." },
+  { "slug": "hei",                "lang": "no", "lines": ["HEI."],                           "footnote": "Det var alt jeg hadde." },
+  { "slug": "jeg-er-bedre",       "lang": "no", "lines": ["JEG ER", "BEDRE", "ENN DEG"],     "footnote": "Ikke si det til noen." },
+  { "slug": "fredagstaco",        "lang": "no", "lines": ["MIN PERSONLIGHET", "ER FREDAGSTACO"], "footnote": "Resten av uka er jeg ingen." },
+  { "slug": "pa-hytta-i-hodet",   "lang": "no", "lines": ["PÅ HYTTA", "I HODET"],            "footnote": "Kroppen er dessverre på jobb." },
+  { "slug": "vox-clunibus",       "lang": "en", "lines": ["VOX", "CLUNIBUS"],                "footnote": "Latin for talking out of your ass. Roughly." },
+  { "slug": "born-to-rot",        "lang": "en", "lines": ["BORN TO ROT,", "FORCED", "TO WORK"], "footnote": "Terms and conditions apply." },
+  { "slug": "main-character",     "lang": "en", "lines": ["MAIN", "CHARACTER"],              "footnote": "In a documentary about bad decisions." },
+  { "slug": "ill-be-fine",        "lang": "en", "lines": ["I'LL BE", "FINE"],                "footnote": "Citation needed." },
+  { "slug": "currently-thriving", "lang": "en", "lines": ["CURRENTLY", "THRIVING"],          "footnote": "Source: trust me." },
+  { "slug": "not-a-morning-person", "lang": "en", "lines": ["NOT A", "MORNING", "PERSON"],   "footnote": "Not much of a person at all." }
+]

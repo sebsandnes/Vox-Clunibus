@@ -70,6 +70,7 @@ Asterisken er alltid Signal oransje. Ikke strekk, roter eller legg skygge på lo
 | `tools/` | `designs.json` (alle linjer) og `render.js` som lager alle filer på nytt |
 | `kolleksjon.md` | Produktene, priser og ferdige produkttekster |
 | `shopify-oppsett.md` | Steg for steg oppsett av Shopify, Printful og betaling |
+| `veikart.md` | Fasene fra oppstart til internasjonal butikk, med mål for hver fase |
 
 ## Ny skjorte
 
